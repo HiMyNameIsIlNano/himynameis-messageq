@@ -1,0 +1,14 @@
+version: '3'
+services:
+  demo-socket-server:
+    image: rabbitmq:3.8.9-management
+    container_name: socket-server
+    environment:
+      - RABBITMQ_DEFAULT_USER=sose-admin
+      - RABBITMQ_DEFAULT_PASS=sose-pwd
+    ports:
+      - 5672:5672
+      - 15672:15672
+    volumes:
+      - ./init/definitions.json:/etc/rabbitmq/definitions.json:ro
+      - ./init/rabbitmq.config:/etc/rabbitmq/rabbitmq.config:ro

@@ -1,0 +1,41 @@
+protobuf {
+    protoc {
+        artifact = "com.google.protobuf:protoc:${protobucCompilerVersion}"
+    }
+    plugins {
+        grpc {
+            artifact = "io.grpc:protoc-gen-grpc-java:${grpcPluginVersion}"
+        }
+    }
+
+    sourceSets {
+        main {
+            proto {
+                srcDir "$protoSrcDirPath"
+            }
+        }
+    }
+
+    generateProtoTasks {
+        all().each { task ->
+            task.builtins {
+                java {
+                    outputSubDir = "$protoOutDirName"
+                }
+            }
+            task.plugins {
+                grpc {
+                    outputSubDir = "$protoOutDirName"
+                }
+            }
+        }
+    }
+    generatedFilesBaseDir = "$projectDir/src/"
+}
+task cleanProtoGen {
+    doFirst {
+        delete("$projectDir/src/main/$protoOutDirName")
+    }
+}
+
+clean.dependsOn cleanProtoGen

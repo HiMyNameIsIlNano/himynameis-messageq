@@ -1,0 +1,13 @@
+spring:
+  profiles:
+    include:
+      - local
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: override-in-application-local
+    password: override-in-application-local
+
+socket:
+  push:
+    exchange-name: push-notification
