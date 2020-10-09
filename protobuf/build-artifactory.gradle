@@ -10,10 +10,11 @@ buildscript {
         }
     }
     dependencies {
-        classpath "org.jfrog.buildinfo:build-info-extractor-gradle:latest.release"
+        classpath "org.jfrog.buildinfo:build-info-extractor-gradle:3.0.1"
     }
 }
 
+apply plugin: 'scala'
 apply plugin: 'maven-publish'
 apply plugin: "com.jfrog.artifactory"
 
@@ -28,25 +29,22 @@ dependencies {
     compile group: 'com.google.protobuf', name: 'protobuf-java', version: protobucCompilerVersion
 }
 
-sourceSets {
-    main {
-        java {
-            srcDirs += ["src/main/$protoOutDirName"]
-        }
-    }
+tasks.withType(ScalaCompile) {
+    scalaCompileOptions.useAnt = false
 }
 
 artifactory {
     contextUrl = "${artifactoryUrl}"
     publish {
         repository {
-            repoKey = "libs-snapshot-local"
+            repoKey = "${artifactorySnapshotLocalUrl}"
             username = "${artifactoryUser}"
             password = "${artifactoryPassword}"
-            mavenCompatible = true
+            maven = true
+
         }
         defaults {
-            publications('mavenJava')
+            publications ('mavenJava')
         }
     }
 }

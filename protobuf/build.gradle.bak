@@ -1,0 +1,91 @@
+plugins {
+    id "com.google.protobuf" version "$gradleProtobufPluginVersion"
+    id 'maven-publish'
+}
+
+group 'com.example'
+version '0.0.1-SNAPSHOT'
+
+dependencies {
+    compile group: 'com.google.protobuf', name: 'protobuf-java', version: protobucCompilerVersion
+}
+
+protobuf {
+    protoc {
+        artifact = "com.google.protobuf:protoc:${protobucCompilerVersion}"
+    }
+    plugins {
+        grpc {
+            artifact = "io.grpc:protoc-gen-grpc-java:${grpcPluginVersion}"
+        }
+    }
+
+    sourceSets {
+        main {
+            proto {
+                srcDir "$protoSrcDirPath"
+            }
+        }
+    }
+
+    generateProtoTasks {
+        all().each { task ->
+            task.builtins {
+                java {
+                    outputSubDir = "$protoOutDirName"
+                }
+            }
+            task.plugins {
+                grpc {
+                    outputSubDir = "$protoOutDirName"
+                }
+            }
+        }
+    }
+    generatedFilesBaseDir = "$projectDir/src/"
+}
+
+/*task buildGrpcSchemaApiJar(type: Jar, dependsOn: classes) {
+    from "src/main/$protoOutDirName"
+}*/
+
+sourceSets {
+    main {
+        java {
+            srcDirs += ["src/main/$protoOutDirName"]
+        }
+    }
+}
+
+publishing {
+    publications {
+        maven(MavenPublication) {
+            artifact("${buildDir}/libs/${rootProject.name}-${version}.${grpcLibExtension}") {
+                extension "${grpcLibExtension}"
+            }
+        }
+    }
+
+    repositories {
+        maven {
+            name = "HiMyNameIsArtifactory" //  optional target repository name
+            credentials {
+                username = "${artifactoryUser}"
+                password = "${artifactoryPassword}"
+            }
+
+            if (project.version.endsWith('-SNAPSHOT'))
+                url "$artifactorySnapshotLocalUrl"
+            else
+                url "$artifactoryReleaseLocalUrl"
+        }
+    }
+}
+
+task cleanProtoGen {
+    doFirst {
+        delete("$projectDir/src/main/$protoOutDirName")
+    }
+}
+
+clean.dependsOn cleanProtoGen
