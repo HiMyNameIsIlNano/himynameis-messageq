@@ -1,4 +1,4 @@
-package com.example.socketserver.config;
+package socketserver.config;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;

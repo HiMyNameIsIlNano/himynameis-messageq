@@ -1,4 +1,4 @@
-package com.example.socketserver.config;
+package socketserver.config;
 
 import javax.annotation.PostConstruct;
 import lombok.RequiredArgsConstructor;

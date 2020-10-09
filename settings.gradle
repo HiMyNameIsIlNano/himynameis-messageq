@@ -1,1 +1,6 @@
-rootProject.name = 'socket-server-grpc-schema'
+rootProject.name = 'messageq'
+include 'messageq-grpc'
+
+include 'protobuf'
+project(":protobuf").name = 'messageq-grpc-api-schema'
+

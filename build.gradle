@@ -1,95 +1,21 @@
-plugins {
-    id 'org.springframework.boot' version "$springBootGradlePluginVersion"
-    id 'io.spring.dependency-management' version "$springBootDependencyManagementPluginVersion"
-    id "com.google.protobuf" version "$gradleProtobufPluginVersion"
-    id 'maven-publish'
-}
-
-apply plugin: 'java'
-apply from: 'grpc.gradle'
-
-group = 'com.example'
-version = '0.0.1-SNAPSHOT'
-sourceCompatibility = '14'
-
-task buildGrpcSchemaApiJar(type: Jar, dependsOn: classes) {
-    from "src/main/$protoOutDirName"
-}
-
-sourceSets {
-    main {
-        java {
-            srcDirs += ["src/main/$protoOutDirName"]
-        }
-    }
-}
-
-repositories {
-    mavenCentral()
-}
-
-configurations {
-    compileOnly {
-        extendsFrom annotationProcessor
-    }
-}
-
-ext {
-    set('testcontainersVersion', "1.14.3")
-}
-
-dependencies {
-    implementation 'org.springframework.boot:spring-boot-starter-actuator'
-    implementation 'org.springframework.boot:spring-boot-starter-security'
-    implementation 'org.springframework.boot:spring-boot-starter-web'
-
-    // grpc server
-    compile group: 'io.github.lognet', name: 'grpc-spring-boot-starter', version: grpcSpringBootVersion
-
-    compileOnly 'org.projectlombok:lombok'
-    annotationProcessor 'org.projectlombok:lombok'
-
-    testImplementation('org.springframework.boot:spring-boot-starter-test') {
-        exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
-    }
-    implementation 'org.springframework.boot:spring-boot-starter-amqp'
-    testImplementation 'org.springframework.amqp:spring-rabbit-test'
-    testImplementation 'org.springframework.security:spring-security-test'
-    testImplementation 'org.testcontainers:junit-jupiter'
-    testImplementation 'org.testcontainers:rabbitmq'
-}
-
-dependencyManagement {
-    imports {
-        mavenBom "org.testcontainers:testcontainers-bom:${testcontainersVersion}"
-    }
-}
-
-test {
-    useJUnitPlatform()
-}
-
-publishing {
-    publications {
-        library(MavenPublication) {
-            groupId = "$group"
-            artifactId = "$rootProject.name"
-            version = "$version"
-        }
-    }
-
+allprojects {
     repositories {
-        maven {
-            name = "HiMyNameIsArtifactory" //  optional target repository name
-            credentials {
-                username = "${artifactoryUser}"
-                password = "${artifactoryPassword}"
-            }
+        // maven {url "$artifactorySnapshotLocalUrl"}
 
-            if (project.version.endsWith('-SNAPSHOT'))
-                url "$artifactorySnapshotLocalUrl"
-            else
-                url "$artifactoryReleaseLocalUrl"
-        }
+        mavenLocal()
+        jcenter()
+    }
+}
+
+subprojects {
+    apply plugin: 'java'
+
+    dependencies {
+        // grpc server
+        compile group: 'io.github.lognet', name: 'grpc-spring-boot-starter', version: grpcSpringBootVersion
+    }
+    buildscript.repositories {
+        mavenLocal()
+        jcenter()
     }
 }

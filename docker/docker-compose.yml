@@ -1,8 +1,8 @@
 version: '3'
 services:
-  demo-socket-server:
+  demo-messageq:
     image: rabbitmq:3.8.9-management
-    container_name: socket-server
+    container_name: messageq
     environment:
       - RABBITMQ_DEFAULT_USER=sose-admin
       - RABBITMQ_DEFAULT_PASS=sose-pwd

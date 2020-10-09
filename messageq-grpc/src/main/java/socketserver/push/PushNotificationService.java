@@ -1,4 +1,4 @@
-package com.example.socketserver.push;
+package socketserver.push;
 
 import org.springframework.stereotype.Service;
 
