@@ -1,4 +1,4 @@
-package socketserver.push;
+package messageq.push;
 
 import org.springframework.stereotype.Service;
 

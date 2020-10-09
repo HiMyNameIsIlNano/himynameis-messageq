@@ -1,4 +1,4 @@
-package com.example.socketserver;
+package com.himynameisilnano.messageq.api;
 
 import static io.grpc.MethodDescriptor.generateFullMethodName;
 import static io.grpc.stub.ClientCalls.asyncBidiStreamingCall;
@@ -27,29 +27,29 @@ public final class PingPongServiceGrpc {
   public static final String SERVICE_NAME = "PingPongService";
 
   // Static method descriptors that strictly reflect the proto.
-  private static volatile io.grpc.MethodDescriptor<com.example.socketserver.Request,
-      com.example.socketserver.Response> getPingMethod;
+  private static volatile io.grpc.MethodDescriptor<com.himynameisilnano.messageq.api.Request,
+      com.himynameisilnano.messageq.api.Response> getPingMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
       fullMethodName = SERVICE_NAME + '/' + "ping",
-      requestType = com.example.socketserver.Request.class,
-      responseType = com.example.socketserver.Response.class,
+      requestType = com.himynameisilnano.messageq.api.Request.class,
+      responseType = com.himynameisilnano.messageq.api.Response.class,
       methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
-  public static io.grpc.MethodDescriptor<com.example.socketserver.Request,
-      com.example.socketserver.Response> getPingMethod() {
-    io.grpc.MethodDescriptor<com.example.socketserver.Request, com.example.socketserver.Response> getPingMethod;
+  public static io.grpc.MethodDescriptor<com.himynameisilnano.messageq.api.Request,
+      com.himynameisilnano.messageq.api.Response> getPingMethod() {
+    io.grpc.MethodDescriptor<com.himynameisilnano.messageq.api.Request, com.himynameisilnano.messageq.api.Response> getPingMethod;
     if ((getPingMethod = PingPongServiceGrpc.getPingMethod) == null) {
       synchronized (PingPongServiceGrpc.class) {
         if ((getPingMethod = PingPongServiceGrpc.getPingMethod) == null) {
           PingPongServiceGrpc.getPingMethod = getPingMethod =
-              io.grpc.MethodDescriptor.<com.example.socketserver.Request, com.example.socketserver.Response>newBuilder()
+              io.grpc.MethodDescriptor.<com.himynameisilnano.messageq.api.Request, com.himynameisilnano.messageq.api.Response>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(SERVICE_NAME, "ping"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  com.example.socketserver.Request.getDefaultInstance()))
+                  com.himynameisilnano.messageq.api.Request.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  com.example.socketserver.Response.getDefaultInstance()))
+                  com.himynameisilnano.messageq.api.Response.getDefaultInstance()))
               .setSchemaDescriptor(new PingPongServiceMethodDescriptorSupplier("ping"))
               .build();
         }
@@ -108,8 +108,8 @@ public final class PingPongServiceGrpc {
 
     /**
      */
-    public void ping(com.example.socketserver.Request request,
-        io.grpc.stub.StreamObserver<com.example.socketserver.Response> responseObserver) {
+    public void ping(com.himynameisilnano.messageq.api.Request request,
+        io.grpc.stub.StreamObserver<com.himynameisilnano.messageq.api.Response> responseObserver) {
       asyncUnimplementedUnaryCall(getPingMethod(), responseObserver);
     }
 
@@ -119,8 +119,8 @@ public final class PingPongServiceGrpc {
             getPingMethod(),
             asyncUnaryCall(
               new MethodHandlers<
-                com.example.socketserver.Request,
-                com.example.socketserver.Response>(
+                com.himynameisilnano.messageq.api.Request,
+                com.himynameisilnano.messageq.api.Response>(
                   this, METHODID_PING)))
           .build();
     }
@@ -142,8 +142,8 @@ public final class PingPongServiceGrpc {
 
     /**
      */
-    public void ping(com.example.socketserver.Request request,
-        io.grpc.stub.StreamObserver<com.example.socketserver.Response> responseObserver) {
+    public void ping(com.himynameisilnano.messageq.api.Request request,
+        io.grpc.stub.StreamObserver<com.himynameisilnano.messageq.api.Response> responseObserver) {
       asyncUnaryCall(
           getChannel().newCall(getPingMethod(), getCallOptions()), request, responseObserver);
     }
@@ -165,7 +165,7 @@ public final class PingPongServiceGrpc {
 
     /**
      */
-    public com.example.socketserver.Response ping(com.example.socketserver.Request request) {
+    public com.himynameisilnano.messageq.api.Response ping(com.himynameisilnano.messageq.api.Request request) {
       return blockingUnaryCall(
           getChannel(), getPingMethod(), getCallOptions(), request);
     }
@@ -187,8 +187,8 @@ public final class PingPongServiceGrpc {
 
     /**
      */
-    public com.google.common.util.concurrent.ListenableFuture<com.example.socketserver.Response> ping(
-        com.example.socketserver.Request request) {
+    public com.google.common.util.concurrent.ListenableFuture<com.himynameisilnano.messageq.api.Response> ping(
+        com.himynameisilnano.messageq.api.Request request) {
       return futureUnaryCall(
           getChannel().newCall(getPingMethod(), getCallOptions()), request);
     }
@@ -214,8 +214,8 @@ public final class PingPongServiceGrpc {
     public void invoke(Req request, io.grpc.stub.StreamObserver<Resp> responseObserver) {
       switch (methodId) {
         case METHODID_PING:
-          serviceImpl.ping((com.example.socketserver.Request) request,
-              (io.grpc.stub.StreamObserver<com.example.socketserver.Response>) responseObserver);
+          serviceImpl.ping((com.himynameisilnano.messageq.api.Request) request,
+              (io.grpc.stub.StreamObserver<com.himynameisilnano.messageq.api.Response>) responseObserver);
           break;
         default:
           throw new AssertionError();
@@ -239,7 +239,7 @@ public final class PingPongServiceGrpc {
 
     @java.lang.Override
     public com.google.protobuf.Descriptors.FileDescriptor getFileDescriptor() {
-      return com.example.socketserver.Demo.getDescriptor();
+      return com.himynameisilnano.messageq.api.Demo.getDescriptor();
     }
 
     @java.lang.Override

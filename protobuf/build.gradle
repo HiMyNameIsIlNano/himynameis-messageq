@@ -45,9 +45,9 @@ protobuf {
     generatedFilesBaseDir = "$projectDir/src/"
 }
 
-task buildGrpcSchemaApiJar(type: Jar, dependsOn: classes) {
+/*task buildGrpcSchemaApiJar(type: Jar, dependsOn: classes) {
     from "src/main/$protoOutDirName"
-}
+}*/
 
 sourceSets {
     main {

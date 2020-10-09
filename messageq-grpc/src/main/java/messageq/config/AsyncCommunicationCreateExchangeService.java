@@ -1,4 +1,4 @@
-package socketserver.config;
+package messageq.config;
 
 import javax.annotation.PostConstruct;
 import lombok.RequiredArgsConstructor;
