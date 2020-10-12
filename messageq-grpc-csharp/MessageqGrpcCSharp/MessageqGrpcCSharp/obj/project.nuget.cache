@@ -1,0 +1,16 @@
+{
+  "version": 2,
+  "dgSpecHash": "5jOcV/r9PMGQNIXHhxYOqoitnPTVnpRqfYujarP/vj59894+HC8dABMAofHRZgF9OzNIP8Iwbd9tT/WHNxGnww==",
+  "success": true,
+  "projectFilePath": "/home/user/development/himynameis-messageq/messageq-grpc-csharp/MessageqGrpcCSharp/MessageqGrpcCSharp/MessageqGrpcCSharp.csproj",
+  "expectedPackageFiles": [
+    "/home/user/.nuget/packages/google.protobuf/3.13.0/google.protobuf.3.13.0.nupkg.sha512",
+    "/home/user/.nuget/packages/grpc.core/2.32.0/grpc.core.2.32.0.nupkg.sha512",
+    "/home/user/.nuget/packages/grpc.core.api/2.32.0/grpc.core.api.2.32.0.nupkg.sha512",
+    "/home/user/.nuget/packages/grpc.tools/2.32.0/grpc.tools.2.32.0.nupkg.sha512",
+    "/home/user/.nuget/packages/system.memory/4.5.3/system.memory.4.5.3.nupkg.sha512",
+    "/home/user/.nuget/packages/system.runtime.compilerservices.unsafe/4.5.2/system.runtime.compilerservices.unsafe.4.5.2.nupkg.sha512",
+    "/home/user/.nuget/packages/microsoft.aspnetcore.app.ref/3.1.8/microsoft.aspnetcore.app.ref.3.1.8.nupkg.sha512"
+  ],
+  "logs": []
+}
