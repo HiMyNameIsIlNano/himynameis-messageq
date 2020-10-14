@@ -34,3 +34,7 @@ out/
 # Back end
 application-local.yml
 docker-compose-local.yml
+
+# Front end
+messageq-grpc-csharp/MessageqGrpcCSharp/bin
+messageq-grpc-csharp/MessageqGrpcCSharp/obj

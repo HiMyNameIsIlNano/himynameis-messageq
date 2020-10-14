@@ -1,2 +1,0 @@
-obj/Debug/netcoreapp3.1/Demo.cs \
-obj/Debug/netcoreapp3.1/DemoGrpc.cs: ../../../protobuf/src/main/schema/demo.proto
