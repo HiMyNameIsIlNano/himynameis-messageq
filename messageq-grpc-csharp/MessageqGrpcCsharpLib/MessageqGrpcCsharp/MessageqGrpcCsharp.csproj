@@ -19,7 +19,7 @@
           <PrivateAssets>all</PrivateAssets>
           <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
         </PackageReference>
-		<Protobuf Include="..\..\..\protobuf\src\main\schema\*.proto" OutputDir="$(SolutionDir)MessageqGrpcCSharp" CompileOutputs="false" GrpcServices="Both" />
+		<Protobuf Include="..\..\..\protobuf\src\main\schema\*.proto" OutputDir="$(SolutionDir)MessageqGrpcCsharp" CompileOutputs="false" GrpcServices="Both" />
     </ItemGroup>
 
 </Project>
