@@ -1,0 +1,5 @@
+# C# Library
+./bin/
+./obj/
+../.vs/
+*.nupkg

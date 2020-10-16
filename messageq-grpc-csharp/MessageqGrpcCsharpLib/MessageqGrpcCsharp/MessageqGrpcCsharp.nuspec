@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package>
+<metadata>
+  <id>MessageqGrpcCsharp</id>
+  <version>0.0.1</version>
+  <title>Messageq Library for C# interfaces</title>
+  <authors>HiMyNameIsIlNano</authors>
+  <requireLicenseAcceptance>false</requireLicenseAcceptance>
+  <description>The library contains the signature for all the callable actions on the messageq</description>
+  <dependencies>
+    <group targetFramework=".NETFramework4.7">
+      <dependency id="Google.Protobuf" version="3.13.0" exclude="Build,Analyzers" />
+      <dependency id="Grpc.Core" version="2.32.0" exclude="Build,Analyzers" />
+    </group>
+  </dependencies>
+</metadata>
+<!-- This seems to be only used when runnning the nuspec pack MessageqGrpcCsharp.nuspec -->
+<files>
+   <file src=".\*.cs" exclude="**\*.x86.*;**\*.x64.*" target="\" />
+</files>
+</package>

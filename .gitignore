@@ -35,6 +35,7 @@ out/
 application-local.yml
 docker-compose-local.yml
 
-# Front end
-messageq-grpc-csharp/MessageqGrpcCSharp/bin
-messageq-grpc-csharp/MessageqGrpcCSharp/obj
+# C# Library
+/messageq-grpc-csharp/MessageqGrpcCsharpLib/MessageqGrpcCsharp/bin/
+/messageq-grpc-csharp/MessageqGrpcCsharpLib/MessageqGrpcCsharp/obj
+/messageq-grpc-csharp/MessageqGrpcCsharpLib/MessageqGrpcCsharp/.vs
