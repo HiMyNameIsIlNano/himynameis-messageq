@@ -11,6 +11,5 @@ message Response {
 }
 
 service PingPongService {
-  rpc ping (Request) returns (Response) {
-  }
+  rpc ping (Request) returns (Response) { }
 }
