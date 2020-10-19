@@ -26,9 +26,8 @@ public static partial class ManageQueueReflection {
           "b3RvMqYBChZNYW5hZ2VRdWV1ZUdycGNTZXJ2aWNlEkIKDkNyZWF0ZUV4Y2hh",
           "bmdlEhYuZ29vZ2xlLnByb3RvYnVmLkVtcHR5GhYuZ29vZ2xlLnByb3RvYnVm",
           "LkVtcHR5IgASSAoUQ29ubmVjdFBsYXllclRvUXVldWUSFi5nb29nbGUucHJv",
-          "dG9idWYuRW1wdHkaFi5nb29nbGUucHJvdG9idWYuRW1wdHkiAEI+CiFjb20u",
-          "aGlteW5hbWVpc2lsbmFuby5tZXNzYWdlcS5hcGlCF01hbmFnZVF1ZXVlU2Vy",
-          "dmljZVByb3RvUAFiBnByb3RvMw=="));
+          "dG9idWYuRW1wdHkaFi5nb29nbGUucHJvdG9idWYuRW1wdHkiAEIlCiFjb20u",
+          "aGlteW5hbWVpc2lsbmFuby5tZXNzYWdlcS5hcGlQAWIGcHJvdG8z"));
     descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
         new pbr::FileDescriptor[] { global::Google.Protobuf.WellKnownTypes.EmptyReflection.Descriptor, },
         new pbr::GeneratedClrTypeInfo(null, null, null));
