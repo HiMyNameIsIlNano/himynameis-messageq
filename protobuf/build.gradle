@@ -1,0 +1,60 @@
+buildscript {
+    repositories {
+        maven {
+            url "${artifactorySnapshotLocalUrl}"
+            credentials {
+                username = "${artifactoryUser}"
+                password = "${artifactoryPassword}"
+            }
+            name = "maven-main-cache"
+        }
+    }
+    dependencies {
+        classpath "org.jfrog.buildinfo:build-info-extractor-gradle:latest.release"
+    }
+}
+
+apply plugin: 'maven-publish'
+apply plugin: "com.jfrog.artifactory"
+
+group 'com.example'
+version '0.0.1-SNAPSHOT'
+
+repositories {
+    add buildscript.repositories.getByName("maven-main-cache")
+}
+
+dependencies {
+    compile group: 'com.google.protobuf', name: 'protobuf-java', version: protobucCompilerVersion
+}
+
+sourceSets {
+    main {
+        java {
+            srcDirs += ["src/main/$protoOutDirName"]
+        }
+    }
+}
+
+artifactory {
+    contextUrl = "${artifactoryUrl}"
+    publish {
+        repository {
+            repoKey = "libs-snapshot-local"
+            username = "${artifactoryUser}"
+            password = "${artifactoryPassword}"
+            mavenCompatible = true
+        }
+        defaults {
+            publications('mavenJava')
+        }
+    }
+}
+
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            from components.java
+        }
+    }
+}
