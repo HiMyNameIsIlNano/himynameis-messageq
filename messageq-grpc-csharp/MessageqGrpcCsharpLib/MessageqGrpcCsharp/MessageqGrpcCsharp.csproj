@@ -4,7 +4,7 @@
         <TargetFramework>net47</TargetFramework>
         <IsPackable>true</IsPackable>
         <OutputType>Library</OutputType>
-        <PackageVersion>0.0.1</PackageVersion>
+        <PackageVersion>0.0.2</PackageVersion>
         <Title>Messageq Library for C# interfaces</Title>
         <Authors>HiMyNameIsIlNano</Authors>
         <Description>The library contains the signature for all the callable actions on the messageq</Description>

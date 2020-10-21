@@ -14,11 +14,16 @@ buildscript {
     }
 }
 
+plugins {
+    id "com.google.protobuf" version "$gradleProtobufPluginVersion"
+}
+
 apply plugin: 'maven-publish'
 apply plugin: "com.jfrog.artifactory"
+apply from: 'grpc.gradle'
 
 group 'com.example'
-version '0.0.1-SNAPSHOT'
+version '0.0.2-SNAPSHOT'
 
 repositories {
     add buildscript.repositories.getByName("maven-main-cache")

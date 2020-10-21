@@ -2,7 +2,7 @@
 <package>
 <metadata>
   <id>MessageqGrpcCsharp</id>
-  <version>0.0.1</version>
+  <version>0.0.2</version>
   <title>Messageq Library for C# interfaces</title>
   <authors>HiMyNameIsIlNano</authors>
   <requireLicenseAcceptance>false</requireLicenseAcceptance>

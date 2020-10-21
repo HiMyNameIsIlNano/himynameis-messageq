@@ -41,21 +41,24 @@ public static partial class ManageQueueGrpcService
     return parser.ParseFrom(context.PayloadAsNewBuffer());
   }
 
-  static readonly grpc::Marshaller<global::Google.Protobuf.WellKnownTypes.Empty> __Marshaller_google_protobuf_Empty = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Google.Protobuf.WellKnownTypes.Empty.Parser));
+  static readonly grpc::Marshaller<global::ExchangeCreationRequest> __Marshaller_ExchangeCreationRequest = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::ExchangeCreationRequest.Parser));
+  static readonly grpc::Marshaller<global::ExchangeCreationResponse> __Marshaller_ExchangeCreationResponse = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::ExchangeCreationResponse.Parser));
+  static readonly grpc::Marshaller<global::CreatePlayerQueueRequest> __Marshaller_CreatePlayerQueueRequest = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::CreatePlayerQueueRequest.Parser));
+  static readonly grpc::Marshaller<global::CreatePlayerQueueResponse> __Marshaller_CreatePlayerQueueResponse = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::CreatePlayerQueueResponse.Parser));
 
-  static readonly grpc::Method<global::Google.Protobuf.WellKnownTypes.Empty, global::Google.Protobuf.WellKnownTypes.Empty> __Method_CreateExchange = new grpc::Method<global::Google.Protobuf.WellKnownTypes.Empty, global::Google.Protobuf.WellKnownTypes.Empty>(
+  static readonly grpc::Method<global::ExchangeCreationRequest, global::ExchangeCreationResponse> __Method_CreateExchange = new grpc::Method<global::ExchangeCreationRequest, global::ExchangeCreationResponse>(
       grpc::MethodType.Unary,
       __ServiceName,
       "CreateExchange",
-      __Marshaller_google_protobuf_Empty,
-      __Marshaller_google_protobuf_Empty);
+      __Marshaller_ExchangeCreationRequest,
+      __Marshaller_ExchangeCreationResponse);
 
-  static readonly grpc::Method<global::Google.Protobuf.WellKnownTypes.Empty, global::Google.Protobuf.WellKnownTypes.Empty> __Method_ConnectPlayerToQueue = new grpc::Method<global::Google.Protobuf.WellKnownTypes.Empty, global::Google.Protobuf.WellKnownTypes.Empty>(
+  static readonly grpc::Method<global::CreatePlayerQueueRequest, global::CreatePlayerQueueResponse> __Method_ConnectPlayerToQueue = new grpc::Method<global::CreatePlayerQueueRequest, global::CreatePlayerQueueResponse>(
       grpc::MethodType.Unary,
       __ServiceName,
       "ConnectPlayerToQueue",
-      __Marshaller_google_protobuf_Empty,
-      __Marshaller_google_protobuf_Empty);
+      __Marshaller_CreatePlayerQueueRequest,
+      __Marshaller_CreatePlayerQueueResponse);
 
   /// <summary>Service descriptor</summary>
   public static global::Google.Protobuf.Reflection.ServiceDescriptor Descriptor
@@ -67,12 +70,12 @@ public static partial class ManageQueueGrpcService
   [grpc::BindServiceMethod(typeof(ManageQueueGrpcService), "BindService")]
   public abstract partial class ManageQueueGrpcServiceBase
   {
-    public virtual global::System.Threading.Tasks.Task<global::Google.Protobuf.WellKnownTypes.Empty> CreateExchange(global::Google.Protobuf.WellKnownTypes.Empty request, grpc::ServerCallContext context)
+    public virtual global::System.Threading.Tasks.Task<global::ExchangeCreationResponse> CreateExchange(global::ExchangeCreationRequest request, grpc::ServerCallContext context)
     {
       throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
     }
 
-    public virtual global::System.Threading.Tasks.Task<global::Google.Protobuf.WellKnownTypes.Empty> ConnectPlayerToQueue(global::Google.Protobuf.WellKnownTypes.Empty request, grpc::ServerCallContext context)
+    public virtual global::System.Threading.Tasks.Task<global::CreatePlayerQueueResponse> ConnectPlayerToQueue(global::CreatePlayerQueueRequest request, grpc::ServerCallContext context)
     {
       throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
     }
@@ -102,35 +105,35 @@ public static partial class ManageQueueGrpcService
     {
     }
 
-    public virtual global::Google.Protobuf.WellKnownTypes.Empty CreateExchange(global::Google.Protobuf.WellKnownTypes.Empty request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+    public virtual global::ExchangeCreationResponse CreateExchange(global::ExchangeCreationRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
     {
       return CreateExchange(request, new grpc::CallOptions(headers, deadline, cancellationToken));
     }
-    public virtual global::Google.Protobuf.WellKnownTypes.Empty CreateExchange(global::Google.Protobuf.WellKnownTypes.Empty request, grpc::CallOptions options)
+    public virtual global::ExchangeCreationResponse CreateExchange(global::ExchangeCreationRequest request, grpc::CallOptions options)
     {
       return CallInvoker.BlockingUnaryCall(__Method_CreateExchange, null, options, request);
     }
-    public virtual grpc::AsyncUnaryCall<global::Google.Protobuf.WellKnownTypes.Empty> CreateExchangeAsync(global::Google.Protobuf.WellKnownTypes.Empty request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+    public virtual grpc::AsyncUnaryCall<global::ExchangeCreationResponse> CreateExchangeAsync(global::ExchangeCreationRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
     {
       return CreateExchangeAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
     }
-    public virtual grpc::AsyncUnaryCall<global::Google.Protobuf.WellKnownTypes.Empty> CreateExchangeAsync(global::Google.Protobuf.WellKnownTypes.Empty request, grpc::CallOptions options)
+    public virtual grpc::AsyncUnaryCall<global::ExchangeCreationResponse> CreateExchangeAsync(global::ExchangeCreationRequest request, grpc::CallOptions options)
     {
       return CallInvoker.AsyncUnaryCall(__Method_CreateExchange, null, options, request);
     }
-    public virtual global::Google.Protobuf.WellKnownTypes.Empty ConnectPlayerToQueue(global::Google.Protobuf.WellKnownTypes.Empty request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+    public virtual global::CreatePlayerQueueResponse ConnectPlayerToQueue(global::CreatePlayerQueueRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
     {
       return ConnectPlayerToQueue(request, new grpc::CallOptions(headers, deadline, cancellationToken));
     }
-    public virtual global::Google.Protobuf.WellKnownTypes.Empty ConnectPlayerToQueue(global::Google.Protobuf.WellKnownTypes.Empty request, grpc::CallOptions options)
+    public virtual global::CreatePlayerQueueResponse ConnectPlayerToQueue(global::CreatePlayerQueueRequest request, grpc::CallOptions options)
     {
       return CallInvoker.BlockingUnaryCall(__Method_ConnectPlayerToQueue, null, options, request);
     }
-    public virtual grpc::AsyncUnaryCall<global::Google.Protobuf.WellKnownTypes.Empty> ConnectPlayerToQueueAsync(global::Google.Protobuf.WellKnownTypes.Empty request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+    public virtual grpc::AsyncUnaryCall<global::CreatePlayerQueueResponse> ConnectPlayerToQueueAsync(global::CreatePlayerQueueRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
     {
       return ConnectPlayerToQueueAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
     }
-    public virtual grpc::AsyncUnaryCall<global::Google.Protobuf.WellKnownTypes.Empty> ConnectPlayerToQueueAsync(global::Google.Protobuf.WellKnownTypes.Empty request, grpc::CallOptions options)
+    public virtual grpc::AsyncUnaryCall<global::CreatePlayerQueueResponse> ConnectPlayerToQueueAsync(global::CreatePlayerQueueRequest request, grpc::CallOptions options)
     {
       return CallInvoker.AsyncUnaryCall(__Method_ConnectPlayerToQueue, null, options, request);
     }
@@ -156,8 +159,8 @@ public static partial class ManageQueueGrpcService
   /// <param name="serviceImpl">An object implementing the server-side handling logic.</param>
   public static void BindService(grpc::ServiceBinderBase serviceBinder, ManageQueueGrpcServiceBase serviceImpl)
   {
-    serviceBinder.AddMethod(__Method_CreateExchange, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Google.Protobuf.WellKnownTypes.Empty, global::Google.Protobuf.WellKnownTypes.Empty>(serviceImpl.CreateExchange));
-    serviceBinder.AddMethod(__Method_ConnectPlayerToQueue, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Google.Protobuf.WellKnownTypes.Empty, global::Google.Protobuf.WellKnownTypes.Empty>(serviceImpl.ConnectPlayerToQueue));
+    serviceBinder.AddMethod(__Method_CreateExchange, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::ExchangeCreationRequest, global::ExchangeCreationResponse>(serviceImpl.CreateExchange));
+    serviceBinder.AddMethod(__Method_ConnectPlayerToQueue, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::CreatePlayerQueueRequest, global::CreatePlayerQueueResponse>(serviceImpl.ConnectPlayerToQueue));
   }
 
 }
