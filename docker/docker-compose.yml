@@ -7,8 +7,8 @@ services:
       - RABBITMQ_DEFAULT_USER=sose-admin
       - RABBITMQ_DEFAULT_PASS=sose-pwd
     ports:
-      - 5672:5672
-      - 15672:15672
+      - 127.0.0.1:5672:5672
+      - 127.0.0.1:15672:15672
     volumes:
       - ./init/definitions.json:/etc/rabbitmq/definitions.json:ro
       - ./init/rabbitmq.config:/etc/rabbitmq/rabbitmq.config:ro

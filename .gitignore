@@ -38,5 +38,6 @@ docker-compose-local.yml
 # C# Library
 *.nupkg
 /messageq-grpc-csharp/MessageqGrpcCsharpLib/MessageqGrpcCsharp/bin/
-/messageq-grpc-csharp/MessageqGrpcCsharpLib/MessageqGrpcCsharp/obj
+/messageq-grpc-csharp/MessageqGrpcCsharpLib/MessageqGrpcCsharp/obj/
 /messageq-grpc-csharp/MessageqGrpcCsharpLib/.vs
+/messageq-grpc-csharp/MessageqGrpcCsharpLib/MessageqGrpcCsharp/scripts/

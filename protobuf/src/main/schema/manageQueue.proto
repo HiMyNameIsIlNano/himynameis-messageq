@@ -1,11 +1,34 @@
 syntax = "proto3";
-option java_package = "com.himynameisilnano.messageq.api";
+option java_package = "com.messageq.config";
 option java_multiple_files = true;
 
-import "google/protobuf/empty.proto";
+message ExchangeCreationRequest {
+  string exchangeName = 1;
+}
+
+message ExchangeCreationResponse {
+  string exchangeName = 1;
+  bool created = 2;
+  string errorMessage = 3;
+}
+
+message CreatePlayerQueueRequest {
+  string exchangeName = 1;
+  string queueName = 2;
+  int32 playerId = 3;
+}
+
+message CreatePlayerQueueResponse {
+  string exchangeName = 1;
+  string queueName = 2;
+  int32 playerId = 3;
+  bool created = 4;
+  string errorMessage = 5;
+}
 
 service ManageQueueGrpcService {
-  rpc CreateExchange(google.protobuf.Empty) returns (google.protobuf.Empty) {}
 
-  rpc ConnectPlayerToQueue(google.protobuf.Empty) returns (google.protobuf.Empty) {}
+  rpc CreateExchange(ExchangeCreationRequest) returns (ExchangeCreationResponse) {}
+  rpc ConnectPlayerToQueue(CreatePlayerQueueRequest) returns (CreatePlayerQueueResponse) {}
+
 }

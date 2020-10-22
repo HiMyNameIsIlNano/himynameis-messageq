@@ -8,6 +8,10 @@ spring:
     username: override-in-application-local
     password: override-in-application-local
 
+grpc:
+  server:
+    port: 6566
+
 socket:
   push:
     exchange-name: push-notification

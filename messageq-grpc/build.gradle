@@ -22,9 +22,6 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-security'
     implementation 'org.springframework.boot:spring-boot-starter-web'
 
-    // grpc server
-    compile group: 'io.github.lognet', name: 'grpc-spring-boot-starter', version: grpcSpringBootVersion
-
     compileOnly 'org.projectlombok:lombok'
     annotationProcessor 'org.projectlombok:lombok'
 
@@ -36,6 +33,14 @@ dependencies {
     testImplementation 'org.springframework.security:spring-security-test'
     testImplementation 'org.testcontainers:junit-jupiter'
     testImplementation 'org.testcontainers:rabbitmq'
+}
+
+sourceSets {
+    main {
+        java {
+            srcDirs += ["$rootDir/protobuf/src/main/messageq-api/com/messageq/"]
+        }
+    }
 }
 
 dependencyManagement {
