@@ -28,6 +28,7 @@ public class MessageQueueResponseFactory {
                 .setQueueName(queueName)
                 .setPlayerId(playerId)
                 .setCreated(created)
+                .setRoutingKey(routingKey)
                 .setErrorMessage(errorMessage)
                 .build();
     }

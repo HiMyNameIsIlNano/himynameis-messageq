@@ -54,4 +54,16 @@ public interface CreatePlayerQueueResponseOrBuilder extends
    */
   com.google.protobuf.ByteString
       getErrorMessageBytes();
+
+  /**
+   * <code>string routingKey = 6;</code>
+   * @return The routingKey.
+   */
+  java.lang.String getRoutingKey();
+  /**
+   * <code>string routingKey = 6;</code>
+   * @return The bytes for routingKey.
+   */
+  com.google.protobuf.ByteString
+      getRoutingKeyBytes();
 }

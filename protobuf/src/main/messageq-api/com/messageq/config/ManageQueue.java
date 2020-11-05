@@ -49,16 +49,16 @@ public final class ManageQueue {
       "\n\007created\030\002 \001(\010\022\024\n\014errorMessage\030\003 \001(\t\"i\n" +
       "\030CreatePlayerQueueRequest\022\024\n\014exchangeNam" +
       "e\030\001 \001(\t\022\021\n\tqueueName\030\002 \001(\t\022\020\n\010playerId\030\003" +
-      " \001(\005\022\022\n\nroutingKey\030\004 \001(\t\"}\n\031CreatePlayer" +
-      "QueueResponse\022\024\n\014exchangeName\030\001 \001(\t\022\021\n\tq" +
-      "ueueName\030\002 \001(\t\022\020\n\010playerId\030\003 \001(\005\022\017\n\007crea" +
-      "ted\030\004 \001(\010\022\024\n\014errorMessage\030\005 \001(\t2\262\001\n\026Mana" +
-      "geQueueGrpcService\022G\n\016CreateExchange\022\030.E" +
-      "xchangeCreationRequest\032\031.ExchangeCreatio" +
-      "nResponse\"\000\022O\n\024ConnectPlayerToQueue\022\031.Cr" +
-      "eatePlayerQueueRequest\032\032.CreatePlayerQue" +
-      "ueResponse\"\000B\027\n\023com.messageq.configP\001b\006p" +
-      "roto3"
+      " \001(\005\022\022\n\nroutingKey\030\004 \001(\t\"\221\001\n\031CreatePlaye" +
+      "rQueueResponse\022\024\n\014exchangeName\030\001 \001(\t\022\021\n\t" +
+      "queueName\030\002 \001(\t\022\020\n\010playerId\030\003 \001(\005\022\017\n\007cre" +
+      "ated\030\004 \001(\010\022\024\n\014errorMessage\030\005 \001(\t\022\022\n\nrout" +
+      "ingKey\030\006 \001(\t2\262\001\n\026ManageQueueGrpcService\022" +
+      "G\n\016CreateExchange\022\030.ExchangeCreationRequ" +
+      "est\032\031.ExchangeCreationResponse\"\000\022O\n\024Conn" +
+      "ectPlayerToQueue\022\031.CreatePlayerQueueRequ" +
+      "est\032\032.CreatePlayerQueueResponse\"\000B\027\n\023com" +
+      ".messageq.configP\001b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -87,7 +87,7 @@ public final class ManageQueue {
     internal_static_CreatePlayerQueueResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_CreatePlayerQueueResponse_descriptor,
-        new java.lang.String[] { "ExchangeName", "QueueName", "PlayerId", "Created", "ErrorMessage", });
+        new java.lang.String[] { "ExchangeName", "QueueName", "PlayerId", "Created", "ErrorMessage", "RoutingKey", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)
