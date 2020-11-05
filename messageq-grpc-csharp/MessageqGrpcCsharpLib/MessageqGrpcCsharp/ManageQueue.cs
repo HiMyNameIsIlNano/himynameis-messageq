@@ -27,22 +27,22 @@ public static partial class ManageQueueReflection {
           "c3BvbnNlEhQKDGV4Y2hhbmdlTmFtZRgBIAEoCRIPCgdjcmVhdGVkGAIgASgI",
           "EhQKDGVycm9yTWVzc2FnZRgDIAEoCSJpChhDcmVhdGVQbGF5ZXJRdWV1ZVJl",
           "cXVlc3QSFAoMZXhjaGFuZ2VOYW1lGAEgASgJEhEKCXF1ZXVlTmFtZRgCIAEo",
-          "CRIQCghwbGF5ZXJJZBgDIAEoBRISCgpyb3V0aW5nS2V5GAQgASgJIn0KGUNy",
-          "ZWF0ZVBsYXllclF1ZXVlUmVzcG9uc2USFAoMZXhjaGFuZ2VOYW1lGAEgASgJ",
-          "EhEKCXF1ZXVlTmFtZRgCIAEoCRIQCghwbGF5ZXJJZBgDIAEoBRIPCgdjcmVh",
-          "dGVkGAQgASgIEhQKDGVycm9yTWVzc2FnZRgFIAEoCTKyAQoWTWFuYWdlUXVl",
-          "dWVHcnBjU2VydmljZRJHCg5DcmVhdGVFeGNoYW5nZRIYLkV4Y2hhbmdlQ3Jl",
-          "YXRpb25SZXF1ZXN0GhkuRXhjaGFuZ2VDcmVhdGlvblJlc3BvbnNlIgASTwoU",
-          "Q29ubmVjdFBsYXllclRvUXVldWUSGS5DcmVhdGVQbGF5ZXJRdWV1ZVJlcXVl",
-          "c3QaGi5DcmVhdGVQbGF5ZXJRdWV1ZVJlc3BvbnNlIgBCFwoTY29tLm1lc3Nh",
-          "Z2VxLmNvbmZpZ1ABYgZwcm90bzM="));
+          "CRIQCghwbGF5ZXJJZBgDIAEoBRISCgpyb3V0aW5nS2V5GAQgASgJIpEBChlD",
+          "cmVhdGVQbGF5ZXJRdWV1ZVJlc3BvbnNlEhQKDGV4Y2hhbmdlTmFtZRgBIAEo",
+          "CRIRCglxdWV1ZU5hbWUYAiABKAkSEAoIcGxheWVySWQYAyABKAUSDwoHY3Jl",
+          "YXRlZBgEIAEoCBIUCgxlcnJvck1lc3NhZ2UYBSABKAkSEgoKcm91dGluZ0tl",
+          "eRgGIAEoCTKyAQoWTWFuYWdlUXVldWVHcnBjU2VydmljZRJHCg5DcmVhdGVF",
+          "eGNoYW5nZRIYLkV4Y2hhbmdlQ3JlYXRpb25SZXF1ZXN0GhkuRXhjaGFuZ2VD",
+          "cmVhdGlvblJlc3BvbnNlIgASTwoUQ29ubmVjdFBsYXllclRvUXVldWUSGS5D",
+          "cmVhdGVQbGF5ZXJRdWV1ZVJlcXVlc3QaGi5DcmVhdGVQbGF5ZXJRdWV1ZVJl",
+          "c3BvbnNlIgBCFwoTY29tLm1lc3NhZ2VxLmNvbmZpZ1ABYgZwcm90bzM="));
     descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
         new pbr::FileDescriptor[] { },
         new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
           new pbr::GeneratedClrTypeInfo(typeof(global::ExchangeCreationRequest), global::ExchangeCreationRequest.Parser, new[]{ "ExchangeName" }, null, null, null, null),
           new pbr::GeneratedClrTypeInfo(typeof(global::ExchangeCreationResponse), global::ExchangeCreationResponse.Parser, new[]{ "ExchangeName", "Created", "ErrorMessage" }, null, null, null, null),
           new pbr::GeneratedClrTypeInfo(typeof(global::CreatePlayerQueueRequest), global::CreatePlayerQueueRequest.Parser, new[]{ "ExchangeName", "QueueName", "PlayerId", "RoutingKey" }, null, null, null, null),
-          new pbr::GeneratedClrTypeInfo(typeof(global::CreatePlayerQueueResponse), global::CreatePlayerQueueResponse.Parser, new[]{ "ExchangeName", "QueueName", "PlayerId", "Created", "ErrorMessage" }, null, null, null, null)
+          new pbr::GeneratedClrTypeInfo(typeof(global::CreatePlayerQueueResponse), global::CreatePlayerQueueResponse.Parser, new[]{ "ExchangeName", "QueueName", "PlayerId", "Created", "ErrorMessage", "RoutingKey" }, null, null, null, null)
         }));
   }
   #endregion
@@ -779,6 +779,7 @@ public sealed partial class CreatePlayerQueueResponse : pb::IMessage<CreatePlaye
     playerId_ = other.playerId_;
     created_ = other.created_;
     errorMessage_ = other.errorMessage_;
+    routingKey_ = other.routingKey_;
     _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
   }
 
@@ -842,6 +843,17 @@ public sealed partial class CreatePlayerQueueResponse : pb::IMessage<CreatePlaye
     }
   }
 
+  /// <summary>Field number for the "routingKey" field.</summary>
+  public const int RoutingKeyFieldNumber = 6;
+  private string routingKey_ = "";
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public string RoutingKey {
+    get { return routingKey_; }
+    set {
+      routingKey_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+    }
+  }
+
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
   public override bool Equals(object other) {
     return Equals(other as CreatePlayerQueueResponse);
@@ -860,6 +872,7 @@ public sealed partial class CreatePlayerQueueResponse : pb::IMessage<CreatePlaye
     if (PlayerId != other.PlayerId) return false;
     if (Created != other.Created) return false;
     if (ErrorMessage != other.ErrorMessage) return false;
+    if (RoutingKey != other.RoutingKey) return false;
     return Equals(_unknownFields, other._unknownFields);
   }
 
@@ -871,6 +884,7 @@ public sealed partial class CreatePlayerQueueResponse : pb::IMessage<CreatePlaye
     if (PlayerId != 0) hash ^= PlayerId.GetHashCode();
     if (Created != false) hash ^= Created.GetHashCode();
     if (ErrorMessage.Length != 0) hash ^= ErrorMessage.GetHashCode();
+    if (RoutingKey.Length != 0) hash ^= RoutingKey.GetHashCode();
     if (_unknownFields != null) {
       hash ^= _unknownFields.GetHashCode();
     }
@@ -907,6 +921,10 @@ public sealed partial class CreatePlayerQueueResponse : pb::IMessage<CreatePlaye
       output.WriteRawTag(42);
       output.WriteString(ErrorMessage);
     }
+    if (RoutingKey.Length != 0) {
+      output.WriteRawTag(50);
+      output.WriteString(RoutingKey);
+    }
     if (_unknownFields != null) {
       _unknownFields.WriteTo(output);
     }
@@ -936,6 +954,10 @@ public sealed partial class CreatePlayerQueueResponse : pb::IMessage<CreatePlaye
       output.WriteRawTag(42);
       output.WriteString(ErrorMessage);
     }
+    if (RoutingKey.Length != 0) {
+      output.WriteRawTag(50);
+      output.WriteString(RoutingKey);
+    }
     if (_unknownFields != null) {
       _unknownFields.WriteTo(ref output);
     }
@@ -959,6 +981,9 @@ public sealed partial class CreatePlayerQueueResponse : pb::IMessage<CreatePlaye
     }
     if (ErrorMessage.Length != 0) {
       size += 1 + pb::CodedOutputStream.ComputeStringSize(ErrorMessage);
+    }
+    if (RoutingKey.Length != 0) {
+      size += 1 + pb::CodedOutputStream.ComputeStringSize(RoutingKey);
     }
     if (_unknownFields != null) {
       size += _unknownFields.CalculateSize();
@@ -985,6 +1010,9 @@ public sealed partial class CreatePlayerQueueResponse : pb::IMessage<CreatePlaye
     }
     if (other.ErrorMessage.Length != 0) {
       ErrorMessage = other.ErrorMessage;
+    }
+    if (other.RoutingKey.Length != 0) {
+      RoutingKey = other.RoutingKey;
     }
     _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
   }
@@ -1020,6 +1048,10 @@ public sealed partial class CreatePlayerQueueResponse : pb::IMessage<CreatePlaye
           ErrorMessage = input.ReadString();
           break;
         }
+        case 50: {
+          RoutingKey = input.ReadString();
+          break;
+        }
       }
     }
   #endif
@@ -1052,6 +1084,10 @@ public sealed partial class CreatePlayerQueueResponse : pb::IMessage<CreatePlaye
         }
         case 42: {
           ErrorMessage = input.ReadString();
+          break;
+        }
+        case 50: {
+          RoutingKey = input.ReadString();
           break;
         }
       }

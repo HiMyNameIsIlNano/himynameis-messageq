@@ -25,6 +25,7 @@ message CreatePlayerQueueResponse {
   int32 playerId = 3;
   bool created = 4;
   string errorMessage = 5;
+  string routingKey = 6;
 }
 
 service ManageQueueGrpcService {

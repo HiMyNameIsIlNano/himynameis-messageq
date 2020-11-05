@@ -19,7 +19,7 @@ public class MessageQueueResponseFactory {
     }
 
     public com.messageq.config.CreatePlayerQueueResponse toCreatePlayerQueueResponse(
-            String exchangeName, String queueName, int playerId,
+            String exchangeName, String routingKey, String queueName, int playerId,
             boolean created, String errorMessage) {
 
         return com.messageq.config.CreatePlayerQueueResponse

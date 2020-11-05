@@ -23,19 +23,19 @@ public class AsyncCommunicationCreateExchangeService extends ManageQueueGrpcServ
     @Override
     public void createExchange(com.messageq.config.ExchangeCreationRequest request,
             StreamObserver<com.messageq.config.ExchangeCreationResponse> responseObserver) {
+        String exchangeName = request.getExchangeName();
         boolean created = true;
         String errorMessage = "";
 
         try {
-            declareExchange(request.getExchangeName());
+            declareExchange(exchangeName);
         } catch (AmqpException e) {
             created = false;
             errorMessage = e.getMessage();
         }
 
         responseObserver.onNext(MessageQueueResponseFactory
-                .toExchangeCreationResponse(request.getExchangeName(), created, errorMessage));
-
+                .toExchangeCreationResponse(exchangeName, created, errorMessage));
         responseObserver.onCompleted();
     }
 
@@ -65,8 +65,8 @@ public class AsyncCommunicationCreateExchangeService extends ManageQueueGrpcServ
         }
 
         CreatePlayerQueueResponse playerQueueResponse = MessageQueueResponseFactory
-                .toCreatePlayerQueueResponse(exchangeName, queueName,
-                        request.getPlayerId(), created, errorMessage);
+                .toCreatePlayerQueueResponse(exchangeName, request.getRoutingKey(),
+                        queueName, request.getPlayerId(), created, errorMessage);
 
         responseObserver.onNext(playerQueueResponse);
         responseObserver.onCompleted();
