@@ -46,18 +46,19 @@ public final class ManageQueue {
       "\n\021manageQueue.proto\"/\n\027ExchangeCreationR" +
       "equest\022\024\n\014exchangeName\030\001 \001(\t\"W\n\030Exchange" +
       "CreationResponse\022\024\n\014exchangeName\030\001 \001(\t\022\017" +
-      "\n\007created\030\002 \001(\010\022\024\n\014errorMessage\030\003 \001(\t\"U\n" +
+      "\n\007created\030\002 \001(\010\022\024\n\014errorMessage\030\003 \001(\t\"i\n" +
       "\030CreatePlayerQueueRequest\022\024\n\014exchangeNam" +
       "e\030\001 \001(\t\022\021\n\tqueueName\030\002 \001(\t\022\020\n\010playerId\030\003" +
-      " \001(\005\"}\n\031CreatePlayerQueueResponse\022\024\n\014exc" +
-      "hangeName\030\001 \001(\t\022\021\n\tqueueName\030\002 \001(\t\022\020\n\010pl" +
-      "ayerId\030\003 \001(\005\022\017\n\007created\030\004 \001(\010\022\024\n\014errorMe" +
-      "ssage\030\005 \001(\t2\262\001\n\026ManageQueueGrpcService\022G" +
-      "\n\016CreateExchange\022\030.ExchangeCreationReque" +
-      "st\032\031.ExchangeCreationResponse\"\000\022O\n\024Conne" +
-      "ctPlayerToQueue\022\031.CreatePlayerQueueReque" +
-      "st\032\032.CreatePlayerQueueResponse\"\000B\027\n\023com." +
-      "messageq.configP\001b\006proto3"
+      " \001(\005\022\022\n\nroutingKey\030\004 \001(\t\"}\n\031CreatePlayer" +
+      "QueueResponse\022\024\n\014exchangeName\030\001 \001(\t\022\021\n\tq" +
+      "ueueName\030\002 \001(\t\022\020\n\010playerId\030\003 \001(\005\022\017\n\007crea" +
+      "ted\030\004 \001(\010\022\024\n\014errorMessage\030\005 \001(\t2\262\001\n\026Mana" +
+      "geQueueGrpcService\022G\n\016CreateExchange\022\030.E" +
+      "xchangeCreationRequest\032\031.ExchangeCreatio" +
+      "nResponse\"\000\022O\n\024ConnectPlayerToQueue\022\031.Cr" +
+      "eatePlayerQueueRequest\032\032.CreatePlayerQue" +
+      "ueResponse\"\000B\027\n\023com.messageq.configP\001b\006p" +
+      "roto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -80,7 +81,7 @@ public final class ManageQueue {
     internal_static_CreatePlayerQueueRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_CreatePlayerQueueRequest_descriptor,
-        new java.lang.String[] { "ExchangeName", "QueueName", "PlayerId", });
+        new java.lang.String[] { "ExchangeName", "QueueName", "PlayerId", "RoutingKey", });
     internal_static_CreatePlayerQueueResponse_descriptor =
       getDescriptor().getMessageTypes().get(3);
     internal_static_CreatePlayerQueueResponse_fieldAccessorTable = new

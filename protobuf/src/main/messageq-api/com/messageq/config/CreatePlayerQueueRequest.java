@@ -18,6 +18,7 @@ private static final long serialVersionUID = 0L;
   private CreatePlayerQueueRequest() {
     exchangeName_ = "";
     queueName_ = "";
+    routingKey_ = "";
   }
 
   @java.lang.Override
@@ -65,6 +66,12 @@ private static final long serialVersionUID = 0L;
           case 24: {
 
             playerId_ = input.readInt32();
+            break;
+          }
+          case 34: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            routingKey_ = s;
             break;
           }
           default: {
@@ -186,6 +193,44 @@ private static final long serialVersionUID = 0L;
     return playerId_;
   }
 
+  public static final int ROUTINGKEY_FIELD_NUMBER = 4;
+  private volatile java.lang.Object routingKey_;
+  /**
+   * <code>string routingKey = 4;</code>
+   * @return The routingKey.
+   */
+  @java.lang.Override
+  public java.lang.String getRoutingKey() {
+    java.lang.Object ref = routingKey_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      routingKey_ = s;
+      return s;
+    }
+  }
+  /**
+   * <code>string routingKey = 4;</code>
+   * @return The bytes for routingKey.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getRoutingKeyBytes() {
+    java.lang.Object ref = routingKey_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      routingKey_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -209,6 +254,9 @@ private static final long serialVersionUID = 0L;
     if (playerId_ != 0) {
       output.writeInt32(3, playerId_);
     }
+    if (!getRoutingKeyBytes().isEmpty()) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 4, routingKey_);
+    }
     unknownFields.writeTo(output);
   }
 
@@ -227,6 +275,9 @@ private static final long serialVersionUID = 0L;
     if (playerId_ != 0) {
       size += com.google.protobuf.CodedOutputStream
         .computeInt32Size(3, playerId_);
+    }
+    if (!getRoutingKeyBytes().isEmpty()) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, routingKey_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -249,6 +300,8 @@ private static final long serialVersionUID = 0L;
         .equals(other.getQueueName())) return false;
     if (getPlayerId()
         != other.getPlayerId()) return false;
+    if (!getRoutingKey()
+        .equals(other.getRoutingKey())) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -266,6 +319,8 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getQueueName().hashCode();
     hash = (37 * hash) + PLAYERID_FIELD_NUMBER;
     hash = (53 * hash) + getPlayerId();
+    hash = (37 * hash) + ROUTINGKEY_FIELD_NUMBER;
+    hash = (53 * hash) + getRoutingKey().hashCode();
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -405,6 +460,8 @@ private static final long serialVersionUID = 0L;
 
       playerId_ = 0;
 
+      routingKey_ = "";
+
       return this;
     }
 
@@ -434,6 +491,7 @@ private static final long serialVersionUID = 0L;
       result.exchangeName_ = exchangeName_;
       result.queueName_ = queueName_;
       result.playerId_ = playerId_;
+      result.routingKey_ = routingKey_;
       onBuilt();
       return result;
     }
@@ -492,6 +550,10 @@ private static final long serialVersionUID = 0L;
       }
       if (other.getPlayerId() != 0) {
         setPlayerId(other.getPlayerId());
+      }
+      if (!other.getRoutingKey().isEmpty()) {
+        routingKey_ = other.routingKey_;
+        onChanged();
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -701,6 +763,82 @@ private static final long serialVersionUID = 0L;
     public Builder clearPlayerId() {
       
       playerId_ = 0;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object routingKey_ = "";
+    /**
+     * <code>string routingKey = 4;</code>
+     * @return The routingKey.
+     */
+    public java.lang.String getRoutingKey() {
+      java.lang.Object ref = routingKey_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        routingKey_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <code>string routingKey = 4;</code>
+     * @return The bytes for routingKey.
+     */
+    public com.google.protobuf.ByteString
+        getRoutingKeyBytes() {
+      java.lang.Object ref = routingKey_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        routingKey_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <code>string routingKey = 4;</code>
+     * @param value The routingKey to set.
+     * @return This builder for chaining.
+     */
+    public Builder setRoutingKey(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      routingKey_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string routingKey = 4;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearRoutingKey() {
+      
+      routingKey_ = getDefaultInstance().getRoutingKey();
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string routingKey = 4;</code>
+     * @param value The bytes for routingKey to set.
+     * @return This builder for chaining.
+     */
+    public Builder setRoutingKeyBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      routingKey_ = value;
       onChanged();
       return this;
     }

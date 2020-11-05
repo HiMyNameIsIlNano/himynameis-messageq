@@ -36,4 +36,16 @@ public interface CreatePlayerQueueRequestOrBuilder extends
    * @return The playerId.
    */
   int getPlayerId();
+
+  /**
+   * <code>string routingKey = 4;</code>
+   * @return The routingKey.
+   */
+  java.lang.String getRoutingKey();
+  /**
+   * <code>string routingKey = 4;</code>
+   * @return The bytes for routingKey.
+   */
+  com.google.protobuf.ByteString
+      getRoutingKeyBytes();
 }

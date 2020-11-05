@@ -16,6 +16,7 @@ message CreatePlayerQueueRequest {
   string exchangeName = 1;
   string queueName = 2;
   int32 playerId = 3;
+  string routingKey = 4;
 }
 
 message CreatePlayerQueueResponse {
