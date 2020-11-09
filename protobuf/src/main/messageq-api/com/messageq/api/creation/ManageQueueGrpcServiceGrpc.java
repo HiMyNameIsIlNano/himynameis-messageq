@@ -1,4 +1,4 @@
-package com.messageq.config;
+package com.messageq.api.creation;
 
 import static io.grpc.MethodDescriptor.generateFullMethodName;
 import static io.grpc.stub.ClientCalls.asyncBidiStreamingCall;
@@ -27,29 +27,29 @@ public final class ManageQueueGrpcServiceGrpc {
   public static final String SERVICE_NAME = "ManageQueueGrpcService";
 
   // Static method descriptors that strictly reflect the proto.
-  private static volatile io.grpc.MethodDescriptor<com.messageq.config.ExchangeCreationRequest,
-      com.messageq.config.ExchangeCreationResponse> getCreateExchangeMethod;
+  private static volatile io.grpc.MethodDescriptor<com.messageq.api.creation.ExchangeCreationRequest,
+      com.messageq.api.creation.ExchangeCreationResponse> getCreateExchangeMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
       fullMethodName = SERVICE_NAME + '/' + "CreateExchange",
-      requestType = com.messageq.config.ExchangeCreationRequest.class,
-      responseType = com.messageq.config.ExchangeCreationResponse.class,
+      requestType = com.messageq.api.creation.ExchangeCreationRequest.class,
+      responseType = com.messageq.api.creation.ExchangeCreationResponse.class,
       methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
-  public static io.grpc.MethodDescriptor<com.messageq.config.ExchangeCreationRequest,
-      com.messageq.config.ExchangeCreationResponse> getCreateExchangeMethod() {
-    io.grpc.MethodDescriptor<com.messageq.config.ExchangeCreationRequest, com.messageq.config.ExchangeCreationResponse> getCreateExchangeMethod;
+  public static io.grpc.MethodDescriptor<com.messageq.api.creation.ExchangeCreationRequest,
+      com.messageq.api.creation.ExchangeCreationResponse> getCreateExchangeMethod() {
+    io.grpc.MethodDescriptor<com.messageq.api.creation.ExchangeCreationRequest, com.messageq.api.creation.ExchangeCreationResponse> getCreateExchangeMethod;
     if ((getCreateExchangeMethod = ManageQueueGrpcServiceGrpc.getCreateExchangeMethod) == null) {
       synchronized (ManageQueueGrpcServiceGrpc.class) {
         if ((getCreateExchangeMethod = ManageQueueGrpcServiceGrpc.getCreateExchangeMethod) == null) {
           ManageQueueGrpcServiceGrpc.getCreateExchangeMethod = getCreateExchangeMethod =
-              io.grpc.MethodDescriptor.<com.messageq.config.ExchangeCreationRequest, com.messageq.config.ExchangeCreationResponse>newBuilder()
+              io.grpc.MethodDescriptor.<com.messageq.api.creation.ExchangeCreationRequest, com.messageq.api.creation.ExchangeCreationResponse>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(SERVICE_NAME, "CreateExchange"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  com.messageq.config.ExchangeCreationRequest.getDefaultInstance()))
+                  com.messageq.api.creation.ExchangeCreationRequest.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  com.messageq.config.ExchangeCreationResponse.getDefaultInstance()))
+                  com.messageq.api.creation.ExchangeCreationResponse.getDefaultInstance()))
               .setSchemaDescriptor(new ManageQueueGrpcServiceMethodDescriptorSupplier("CreateExchange"))
               .build();
         }
@@ -58,29 +58,29 @@ public final class ManageQueueGrpcServiceGrpc {
     return getCreateExchangeMethod;
   }
 
-  private static volatile io.grpc.MethodDescriptor<com.messageq.config.CreatePlayerQueueRequest,
-      com.messageq.config.CreatePlayerQueueResponse> getConnectPlayerToQueueMethod;
+  private static volatile io.grpc.MethodDescriptor<com.messageq.api.creation.CreatePlayerQueueRequest,
+      com.messageq.api.creation.CreatePlayerQueueResponse> getConnectPlayerToQueueMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
       fullMethodName = SERVICE_NAME + '/' + "ConnectPlayerToQueue",
-      requestType = com.messageq.config.CreatePlayerQueueRequest.class,
-      responseType = com.messageq.config.CreatePlayerQueueResponse.class,
+      requestType = com.messageq.api.creation.CreatePlayerQueueRequest.class,
+      responseType = com.messageq.api.creation.CreatePlayerQueueResponse.class,
       methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
-  public static io.grpc.MethodDescriptor<com.messageq.config.CreatePlayerQueueRequest,
-      com.messageq.config.CreatePlayerQueueResponse> getConnectPlayerToQueueMethod() {
-    io.grpc.MethodDescriptor<com.messageq.config.CreatePlayerQueueRequest, com.messageq.config.CreatePlayerQueueResponse> getConnectPlayerToQueueMethod;
+  public static io.grpc.MethodDescriptor<com.messageq.api.creation.CreatePlayerQueueRequest,
+      com.messageq.api.creation.CreatePlayerQueueResponse> getConnectPlayerToQueueMethod() {
+    io.grpc.MethodDescriptor<com.messageq.api.creation.CreatePlayerQueueRequest, com.messageq.api.creation.CreatePlayerQueueResponse> getConnectPlayerToQueueMethod;
     if ((getConnectPlayerToQueueMethod = ManageQueueGrpcServiceGrpc.getConnectPlayerToQueueMethod) == null) {
       synchronized (ManageQueueGrpcServiceGrpc.class) {
         if ((getConnectPlayerToQueueMethod = ManageQueueGrpcServiceGrpc.getConnectPlayerToQueueMethod) == null) {
           ManageQueueGrpcServiceGrpc.getConnectPlayerToQueueMethod = getConnectPlayerToQueueMethod =
-              io.grpc.MethodDescriptor.<com.messageq.config.CreatePlayerQueueRequest, com.messageq.config.CreatePlayerQueueResponse>newBuilder()
+              io.grpc.MethodDescriptor.<com.messageq.api.creation.CreatePlayerQueueRequest, com.messageq.api.creation.CreatePlayerQueueResponse>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(SERVICE_NAME, "ConnectPlayerToQueue"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  com.messageq.config.CreatePlayerQueueRequest.getDefaultInstance()))
+                  com.messageq.api.creation.CreatePlayerQueueRequest.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  com.messageq.config.CreatePlayerQueueResponse.getDefaultInstance()))
+                  com.messageq.api.creation.CreatePlayerQueueResponse.getDefaultInstance()))
               .setSchemaDescriptor(new ManageQueueGrpcServiceMethodDescriptorSupplier("ConnectPlayerToQueue"))
               .build();
         }
@@ -139,15 +139,15 @@ public final class ManageQueueGrpcServiceGrpc {
 
     /**
      */
-    public void createExchange(com.messageq.config.ExchangeCreationRequest request,
-        io.grpc.stub.StreamObserver<com.messageq.config.ExchangeCreationResponse> responseObserver) {
+    public void createExchange(com.messageq.api.creation.ExchangeCreationRequest request,
+        io.grpc.stub.StreamObserver<com.messageq.api.creation.ExchangeCreationResponse> responseObserver) {
       asyncUnimplementedUnaryCall(getCreateExchangeMethod(), responseObserver);
     }
 
     /**
      */
-    public void connectPlayerToQueue(com.messageq.config.CreatePlayerQueueRequest request,
-        io.grpc.stub.StreamObserver<com.messageq.config.CreatePlayerQueueResponse> responseObserver) {
+    public void connectPlayerToQueue(com.messageq.api.creation.CreatePlayerQueueRequest request,
+        io.grpc.stub.StreamObserver<com.messageq.api.creation.CreatePlayerQueueResponse> responseObserver) {
       asyncUnimplementedUnaryCall(getConnectPlayerToQueueMethod(), responseObserver);
     }
 
@@ -157,15 +157,15 @@ public final class ManageQueueGrpcServiceGrpc {
             getCreateExchangeMethod(),
             asyncUnaryCall(
               new MethodHandlers<
-                com.messageq.config.ExchangeCreationRequest,
-                com.messageq.config.ExchangeCreationResponse>(
+                com.messageq.api.creation.ExchangeCreationRequest,
+                com.messageq.api.creation.ExchangeCreationResponse>(
                   this, METHODID_CREATE_EXCHANGE)))
           .addMethod(
             getConnectPlayerToQueueMethod(),
             asyncUnaryCall(
               new MethodHandlers<
-                com.messageq.config.CreatePlayerQueueRequest,
-                com.messageq.config.CreatePlayerQueueResponse>(
+                com.messageq.api.creation.CreatePlayerQueueRequest,
+                com.messageq.api.creation.CreatePlayerQueueResponse>(
                   this, METHODID_CONNECT_PLAYER_TO_QUEUE)))
           .build();
     }
@@ -187,16 +187,16 @@ public final class ManageQueueGrpcServiceGrpc {
 
     /**
      */
-    public void createExchange(com.messageq.config.ExchangeCreationRequest request,
-        io.grpc.stub.StreamObserver<com.messageq.config.ExchangeCreationResponse> responseObserver) {
+    public void createExchange(com.messageq.api.creation.ExchangeCreationRequest request,
+        io.grpc.stub.StreamObserver<com.messageq.api.creation.ExchangeCreationResponse> responseObserver) {
       asyncUnaryCall(
           getChannel().newCall(getCreateExchangeMethod(), getCallOptions()), request, responseObserver);
     }
 
     /**
      */
-    public void connectPlayerToQueue(com.messageq.config.CreatePlayerQueueRequest request,
-        io.grpc.stub.StreamObserver<com.messageq.config.CreatePlayerQueueResponse> responseObserver) {
+    public void connectPlayerToQueue(com.messageq.api.creation.CreatePlayerQueueRequest request,
+        io.grpc.stub.StreamObserver<com.messageq.api.creation.CreatePlayerQueueResponse> responseObserver) {
       asyncUnaryCall(
           getChannel().newCall(getConnectPlayerToQueueMethod(), getCallOptions()), request, responseObserver);
     }
@@ -218,14 +218,14 @@ public final class ManageQueueGrpcServiceGrpc {
 
     /**
      */
-    public com.messageq.config.ExchangeCreationResponse createExchange(com.messageq.config.ExchangeCreationRequest request) {
+    public com.messageq.api.creation.ExchangeCreationResponse createExchange(com.messageq.api.creation.ExchangeCreationRequest request) {
       return blockingUnaryCall(
           getChannel(), getCreateExchangeMethod(), getCallOptions(), request);
     }
 
     /**
      */
-    public com.messageq.config.CreatePlayerQueueResponse connectPlayerToQueue(com.messageq.config.CreatePlayerQueueRequest request) {
+    public com.messageq.api.creation.CreatePlayerQueueResponse connectPlayerToQueue(com.messageq.api.creation.CreatePlayerQueueRequest request) {
       return blockingUnaryCall(
           getChannel(), getConnectPlayerToQueueMethod(), getCallOptions(), request);
     }
@@ -247,16 +247,16 @@ public final class ManageQueueGrpcServiceGrpc {
 
     /**
      */
-    public com.google.common.util.concurrent.ListenableFuture<com.messageq.config.ExchangeCreationResponse> createExchange(
-        com.messageq.config.ExchangeCreationRequest request) {
+    public com.google.common.util.concurrent.ListenableFuture<com.messageq.api.creation.ExchangeCreationResponse> createExchange(
+        com.messageq.api.creation.ExchangeCreationRequest request) {
       return futureUnaryCall(
           getChannel().newCall(getCreateExchangeMethod(), getCallOptions()), request);
     }
 
     /**
      */
-    public com.google.common.util.concurrent.ListenableFuture<com.messageq.config.CreatePlayerQueueResponse> connectPlayerToQueue(
-        com.messageq.config.CreatePlayerQueueRequest request) {
+    public com.google.common.util.concurrent.ListenableFuture<com.messageq.api.creation.CreatePlayerQueueResponse> connectPlayerToQueue(
+        com.messageq.api.creation.CreatePlayerQueueRequest request) {
       return futureUnaryCall(
           getChannel().newCall(getConnectPlayerToQueueMethod(), getCallOptions()), request);
     }
@@ -283,12 +283,12 @@ public final class ManageQueueGrpcServiceGrpc {
     public void invoke(Req request, io.grpc.stub.StreamObserver<Resp> responseObserver) {
       switch (methodId) {
         case METHODID_CREATE_EXCHANGE:
-          serviceImpl.createExchange((com.messageq.config.ExchangeCreationRequest) request,
-              (io.grpc.stub.StreamObserver<com.messageq.config.ExchangeCreationResponse>) responseObserver);
+          serviceImpl.createExchange((com.messageq.api.creation.ExchangeCreationRequest) request,
+              (io.grpc.stub.StreamObserver<com.messageq.api.creation.ExchangeCreationResponse>) responseObserver);
           break;
         case METHODID_CONNECT_PLAYER_TO_QUEUE:
-          serviceImpl.connectPlayerToQueue((com.messageq.config.CreatePlayerQueueRequest) request,
-              (io.grpc.stub.StreamObserver<com.messageq.config.CreatePlayerQueueResponse>) responseObserver);
+          serviceImpl.connectPlayerToQueue((com.messageq.api.creation.CreatePlayerQueueRequest) request,
+              (io.grpc.stub.StreamObserver<com.messageq.api.creation.CreatePlayerQueueResponse>) responseObserver);
           break;
         default:
           throw new AssertionError();
@@ -312,7 +312,7 @@ public final class ManageQueueGrpcServiceGrpc {
 
     @java.lang.Override
     public com.google.protobuf.Descriptors.FileDescriptor getFileDescriptor() {
-      return com.messageq.config.ManageQueue.getDescriptor();
+      return com.messageq.api.creation.ManageQueue.getDescriptor();
     }
 
     @java.lang.Override

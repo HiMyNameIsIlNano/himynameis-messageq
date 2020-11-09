@@ -1,12 +1,13 @@
-package messageq.config;
+package messageq.create;
 
-import com.messageq.config.ExchangeCreationResponse;
+import com.messageq.api.creation.CreatePlayerQueueResponse;
+import com.messageq.api.creation.ExchangeCreationResponse;
 import lombok.experimental.UtilityClass;
 
 @UtilityClass
 public class MessageQueueResponseFactory {
 
-    public com.messageq.config.ExchangeCreationResponse toExchangeCreationResponse(
+    public ExchangeCreationResponse toExchangeCreationResponse(
             String exchangeName, boolean created,
             String errorMessage) {
 
@@ -18,11 +19,11 @@ public class MessageQueueResponseFactory {
                 .build();
     }
 
-    public com.messageq.config.CreatePlayerQueueResponse toCreatePlayerQueueResponse(
+    public CreatePlayerQueueResponse toCreatePlayerQueueResponse(
             String exchangeName, String routingKey, String queueName, int playerId,
             boolean created, String errorMessage) {
 
-        return com.messageq.config.CreatePlayerQueueResponse
+        return CreatePlayerQueueResponse
                 .newBuilder()
                 .setExchangeName(exchangeName)
                 .setQueueName(queueName)
