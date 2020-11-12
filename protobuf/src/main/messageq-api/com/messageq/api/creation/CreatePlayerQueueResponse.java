@@ -18,7 +18,6 @@ private static final long serialVersionUID = 0L;
   private CreatePlayerQueueResponse() {
     exchangeName_ = "";
     queueName_ = "";
-    errorMessage_ = "";
     routingKey_ = "";
   }
 
@@ -69,18 +68,7 @@ private static final long serialVersionUID = 0L;
             playerId_ = input.readInt32();
             break;
           }
-          case 32: {
-
-            created_ = input.readBool();
-            break;
-          }
-          case 42: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            errorMessage_ = s;
-            break;
-          }
-          case 50: {
+          case 34: {
             java.lang.String s = input.readStringRequireUtf8();
 
             routingKey_ = s;
@@ -205,59 +193,10 @@ private static final long serialVersionUID = 0L;
     return playerId_;
   }
 
-  public static final int CREATED_FIELD_NUMBER = 4;
-  private boolean created_;
-  /**
-   * <code>bool created = 4;</code>
-   * @return The created.
-   */
-  @java.lang.Override
-  public boolean getCreated() {
-    return created_;
-  }
-
-  public static final int ERRORMESSAGE_FIELD_NUMBER = 5;
-  private volatile java.lang.Object errorMessage_;
-  /**
-   * <code>string errorMessage = 5;</code>
-   * @return The errorMessage.
-   */
-  @java.lang.Override
-  public java.lang.String getErrorMessage() {
-    java.lang.Object ref = errorMessage_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
-    } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
-      errorMessage_ = s;
-      return s;
-    }
-  }
-  /**
-   * <code>string errorMessage = 5;</code>
-   * @return The bytes for errorMessage.
-   */
-  @java.lang.Override
-  public com.google.protobuf.ByteString
-      getErrorMessageBytes() {
-    java.lang.Object ref = errorMessage_;
-    if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
-      errorMessage_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
-    }
-  }
-
-  public static final int ROUTINGKEY_FIELD_NUMBER = 6;
+  public static final int ROUTINGKEY_FIELD_NUMBER = 4;
   private volatile java.lang.Object routingKey_;
   /**
-   * <code>string routingKey = 6;</code>
+   * <code>string routingKey = 4;</code>
    * @return The routingKey.
    */
   @java.lang.Override
@@ -274,7 +213,7 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * <code>string routingKey = 6;</code>
+   * <code>string routingKey = 4;</code>
    * @return The bytes for routingKey.
    */
   @java.lang.Override
@@ -315,14 +254,8 @@ private static final long serialVersionUID = 0L;
     if (playerId_ != 0) {
       output.writeInt32(3, playerId_);
     }
-    if (created_ != false) {
-      output.writeBool(4, created_);
-    }
-    if (!getErrorMessageBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 5, errorMessage_);
-    }
     if (!getRoutingKeyBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 6, routingKey_);
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 4, routingKey_);
     }
     unknownFields.writeTo(output);
   }
@@ -343,15 +276,8 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeInt32Size(3, playerId_);
     }
-    if (created_ != false) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeBoolSize(4, created_);
-    }
-    if (!getErrorMessageBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, errorMessage_);
-    }
     if (!getRoutingKeyBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, routingKey_);
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, routingKey_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -374,10 +300,6 @@ private static final long serialVersionUID = 0L;
         .equals(other.getQueueName())) return false;
     if (getPlayerId()
         != other.getPlayerId()) return false;
-    if (getCreated()
-        != other.getCreated()) return false;
-    if (!getErrorMessage()
-        .equals(other.getErrorMessage())) return false;
     if (!getRoutingKey()
         .equals(other.getRoutingKey())) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
@@ -397,11 +319,6 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getQueueName().hashCode();
     hash = (37 * hash) + PLAYERID_FIELD_NUMBER;
     hash = (53 * hash) + getPlayerId();
-    hash = (37 * hash) + CREATED_FIELD_NUMBER;
-    hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
-        getCreated());
-    hash = (37 * hash) + ERRORMESSAGE_FIELD_NUMBER;
-    hash = (53 * hash) + getErrorMessage().hashCode();
     hash = (37 * hash) + ROUTINGKEY_FIELD_NUMBER;
     hash = (53 * hash) + getRoutingKey().hashCode();
     hash = (29 * hash) + unknownFields.hashCode();
@@ -543,10 +460,6 @@ private static final long serialVersionUID = 0L;
 
       playerId_ = 0;
 
-      created_ = false;
-
-      errorMessage_ = "";
-
       routingKey_ = "";
 
       return this;
@@ -578,8 +491,6 @@ private static final long serialVersionUID = 0L;
       result.exchangeName_ = exchangeName_;
       result.queueName_ = queueName_;
       result.playerId_ = playerId_;
-      result.created_ = created_;
-      result.errorMessage_ = errorMessage_;
       result.routingKey_ = routingKey_;
       onBuilt();
       return result;
@@ -639,13 +550,6 @@ private static final long serialVersionUID = 0L;
       }
       if (other.getPlayerId() != 0) {
         setPlayerId(other.getPlayerId());
-      }
-      if (other.getCreated() != false) {
-        setCreated(other.getCreated());
-      }
-      if (!other.getErrorMessage().isEmpty()) {
-        errorMessage_ = other.errorMessage_;
-        onChanged();
       }
       if (!other.getRoutingKey().isEmpty()) {
         routingKey_ = other.routingKey_;
@@ -863,116 +767,9 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private boolean created_ ;
-    /**
-     * <code>bool created = 4;</code>
-     * @return The created.
-     */
-    @java.lang.Override
-    public boolean getCreated() {
-      return created_;
-    }
-    /**
-     * <code>bool created = 4;</code>
-     * @param value The created to set.
-     * @return This builder for chaining.
-     */
-    public Builder setCreated(boolean value) {
-      
-      created_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>bool created = 4;</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearCreated() {
-      
-      created_ = false;
-      onChanged();
-      return this;
-    }
-
-    private java.lang.Object errorMessage_ = "";
-    /**
-     * <code>string errorMessage = 5;</code>
-     * @return The errorMessage.
-     */
-    public java.lang.String getErrorMessage() {
-      java.lang.Object ref = errorMessage_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        errorMessage_ = s;
-        return s;
-      } else {
-        return (java.lang.String) ref;
-      }
-    }
-    /**
-     * <code>string errorMessage = 5;</code>
-     * @return The bytes for errorMessage.
-     */
-    public com.google.protobuf.ByteString
-        getErrorMessageBytes() {
-      java.lang.Object ref = errorMessage_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        errorMessage_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-    /**
-     * <code>string errorMessage = 5;</code>
-     * @param value The errorMessage to set.
-     * @return This builder for chaining.
-     */
-    public Builder setErrorMessage(
-        java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
-      errorMessage_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>string errorMessage = 5;</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearErrorMessage() {
-      
-      errorMessage_ = getDefaultInstance().getErrorMessage();
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>string errorMessage = 5;</code>
-     * @param value The bytes for errorMessage to set.
-     * @return This builder for chaining.
-     */
-    public Builder setErrorMessageBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
-      errorMessage_ = value;
-      onChanged();
-      return this;
-    }
-
     private java.lang.Object routingKey_ = "";
     /**
-     * <code>string routingKey = 6;</code>
+     * <code>string routingKey = 4;</code>
      * @return The routingKey.
      */
     public java.lang.String getRoutingKey() {
@@ -988,7 +785,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string routingKey = 6;</code>
+     * <code>string routingKey = 4;</code>
      * @return The bytes for routingKey.
      */
     public com.google.protobuf.ByteString
@@ -1005,7 +802,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string routingKey = 6;</code>
+     * <code>string routingKey = 4;</code>
      * @param value The routingKey to set.
      * @return This builder for chaining.
      */
@@ -1020,7 +817,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string routingKey = 6;</code>
+     * <code>string routingKey = 4;</code>
      * @return This builder for chaining.
      */
     public Builder clearRoutingKey() {
@@ -1030,7 +827,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string routingKey = 6;</code>
+     * <code>string routingKey = 4;</code>
      * @param value The bytes for routingKey to set.
      * @return This builder for chaining.
      */

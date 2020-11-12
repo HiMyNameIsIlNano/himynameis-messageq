@@ -28,20 +28,19 @@ public static partial class ActionQueueReflection {
           "ZXkYAiABKAkSHgoHbWVzc2FnZRgDIAEoCzINLlF1ZXVlTWVzc2FnZSJeCh9Q",
           "dXNoTWVzc2FnZUNvbmZpcm1hdGlvblJlc3BvbnNlEgwKBHR5cGUYASABKAkS",
           "LQoJdGltZXN0YW1wGAIgASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFt",
-          "cCJGChFQb3BNZXNzYWdlUmVxdWVzdBIRCglxdWV1ZU5hbWUYASABKAkSHgoH",
-          "bWVzc2FnZRgCIAEoCzINLlF1ZXVlTWVzc2FnZSJDCgxRdWV1ZU1lc3NhZ2US",
-          "DAoEdHlwZRgBIAEoCRIlCgdtZXNzYWdlGAIgASgLMhQuZ29vZ2xlLnByb3Rv",
-          "YnVmLkFueTKUAQoXUXVldWVBY3Rpb25zR3JwY1NlcnZpY2USRgoLUHVzaE1l",
-          "c3NhZ2USEy5QdXNoTWVzc2FnZVJlcXVlc3QaIC5QdXNoTWVzc2FnZUNvbmZp",
-          "cm1hdGlvblJlc3BvbnNlIgASMQoKUG9wTWVzc2FnZRISLlBvcE1lc3NhZ2VS",
-          "ZXF1ZXN0Gg0uUXVldWVNZXNzYWdlIgBCHAoYY29tLm1lc3NhZ2VxLmFwaS5h",
-          "Y3Rpb25zUAFiBnByb3RvMw=="));
+          "cCImChFQb3BNZXNzYWdlUmVxdWVzdBIRCglxdWV1ZU5hbWUYASABKAkiQwoM",
+          "UXVldWVNZXNzYWdlEgwKBHR5cGUYASABKAkSJQoHbWVzc2FnZRgCIAEoCzIU",
+          "Lmdvb2dsZS5wcm90b2J1Zi5BbnkylAEKF1F1ZXVlQWN0aW9uc0dycGNTZXJ2",
+          "aWNlEkYKC1B1c2hNZXNzYWdlEhMuUHVzaE1lc3NhZ2VSZXF1ZXN0GiAuUHVz",
+          "aE1lc3NhZ2VDb25maXJtYXRpb25SZXNwb25zZSIAEjEKClBvcE1lc3NhZ2US",
+          "Ei5Qb3BNZXNzYWdlUmVxdWVzdBoNLlF1ZXVlTWVzc2FnZSIAQhwKGGNvbS5t",
+          "ZXNzYWdlcS5hcGkuYWN0aW9uc1ABYgZwcm90bzM="));
     descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
         new pbr::FileDescriptor[] { global::Google.Protobuf.WellKnownTypes.AnyReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.TimestampReflection.Descriptor, },
         new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
           new pbr::GeneratedClrTypeInfo(typeof(global::PushMessageRequest), global::PushMessageRequest.Parser, new[]{ "ExchangeName", "RoutingKey", "Message" }, null, null, null, null),
           new pbr::GeneratedClrTypeInfo(typeof(global::PushMessageConfirmationResponse), global::PushMessageConfirmationResponse.Parser, new[]{ "Type", "Timestamp" }, null, null, null, null),
-          new pbr::GeneratedClrTypeInfo(typeof(global::PopMessageRequest), global::PopMessageRequest.Parser, new[]{ "QueueName", "Message" }, null, null, null, null),
+          new pbr::GeneratedClrTypeInfo(typeof(global::PopMessageRequest), global::PopMessageRequest.Parser, new[]{ "QueueName" }, null, null, null, null),
           new pbr::GeneratedClrTypeInfo(typeof(global::QueueMessage), global::QueueMessage.Parser, new[]{ "Type", "Message" }, null, null, null, null)
         }));
   }
@@ -549,7 +548,6 @@ public sealed partial class PopMessageRequest : pb::IMessage<PopMessageRequest>
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
   public PopMessageRequest(PopMessageRequest other) : this() {
     queueName_ = other.queueName_;
-    message_ = other.message_ != null ? other.message_.Clone() : null;
     _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
   }
 
@@ -569,17 +567,6 @@ public sealed partial class PopMessageRequest : pb::IMessage<PopMessageRequest>
     }
   }
 
-  /// <summary>Field number for the "message" field.</summary>
-  public const int MessageFieldNumber = 2;
-  private global::QueueMessage message_;
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public global::QueueMessage Message {
-    get { return message_; }
-    set {
-      message_ = value;
-    }
-  }
-
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
   public override bool Equals(object other) {
     return Equals(other as PopMessageRequest);
@@ -594,7 +581,6 @@ public sealed partial class PopMessageRequest : pb::IMessage<PopMessageRequest>
       return true;
     }
     if (QueueName != other.QueueName) return false;
-    if (!object.Equals(Message, other.Message)) return false;
     return Equals(_unknownFields, other._unknownFields);
   }
 
@@ -602,7 +588,6 @@ public sealed partial class PopMessageRequest : pb::IMessage<PopMessageRequest>
   public override int GetHashCode() {
     int hash = 1;
     if (QueueName.Length != 0) hash ^= QueueName.GetHashCode();
-    if (message_ != null) hash ^= Message.GetHashCode();
     if (_unknownFields != null) {
       hash ^= _unknownFields.GetHashCode();
     }
@@ -623,10 +608,6 @@ public sealed partial class PopMessageRequest : pb::IMessage<PopMessageRequest>
       output.WriteRawTag(10);
       output.WriteString(QueueName);
     }
-    if (message_ != null) {
-      output.WriteRawTag(18);
-      output.WriteMessage(Message);
-    }
     if (_unknownFields != null) {
       _unknownFields.WriteTo(output);
     }
@@ -640,10 +621,6 @@ public sealed partial class PopMessageRequest : pb::IMessage<PopMessageRequest>
       output.WriteRawTag(10);
       output.WriteString(QueueName);
     }
-    if (message_ != null) {
-      output.WriteRawTag(18);
-      output.WriteMessage(Message);
-    }
     if (_unknownFields != null) {
       _unknownFields.WriteTo(ref output);
     }
@@ -655,9 +632,6 @@ public sealed partial class PopMessageRequest : pb::IMessage<PopMessageRequest>
     int size = 0;
     if (QueueName.Length != 0) {
       size += 1 + pb::CodedOutputStream.ComputeStringSize(QueueName);
-    }
-    if (message_ != null) {
-      size += 1 + pb::CodedOutputStream.ComputeMessageSize(Message);
     }
     if (_unknownFields != null) {
       size += _unknownFields.CalculateSize();
@@ -672,12 +646,6 @@ public sealed partial class PopMessageRequest : pb::IMessage<PopMessageRequest>
     }
     if (other.QueueName.Length != 0) {
       QueueName = other.QueueName;
-    }
-    if (other.message_ != null) {
-      if (message_ == null) {
-        Message = new global::QueueMessage();
-      }
-      Message.MergeFrom(other.Message);
     }
     _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
   }
@@ -697,13 +665,6 @@ public sealed partial class PopMessageRequest : pb::IMessage<PopMessageRequest>
           QueueName = input.ReadString();
           break;
         }
-        case 18: {
-          if (message_ == null) {
-            Message = new global::QueueMessage();
-          }
-          input.ReadMessage(Message);
-          break;
-        }
       }
     }
   #endif
@@ -720,13 +681,6 @@ public sealed partial class PopMessageRequest : pb::IMessage<PopMessageRequest>
           break;
         case 10: {
           QueueName = input.ReadString();
-          break;
-        }
-        case 18: {
-          if (message_ == null) {
-            Message = new global::QueueMessage();
-          }
-          input.ReadMessage(Message);
           break;
         }
       }

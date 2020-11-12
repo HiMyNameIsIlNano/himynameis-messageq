@@ -7,30 +7,22 @@ import lombok.experimental.UtilityClass;
 @UtilityClass
 public class MessageQueueResponseFactory {
 
-    public ExchangeCreationResponse toExchangeCreationResponse(
-            String exchangeName, boolean created,
-            String errorMessage) {
+    public ExchangeCreationResponse toExchangeCreationResponse(String exchangeName) {
 
         return ExchangeCreationResponse
                 .newBuilder()
                 .setExchangeName(exchangeName)
-                .setCreated(created)
-                .setErrorMessage(errorMessage)
                 .build();
     }
 
     public CreatePlayerQueueResponse toCreatePlayerQueueResponse(
-            String exchangeName, String routingKey, String queueName, int playerId,
-            boolean created, String errorMessage) {
+            String exchangeName, String routingKey, String queueName, int playerId) {
 
-        return CreatePlayerQueueResponse
-                .newBuilder()
+        return CreatePlayerQueueResponse.newBuilder()
                 .setExchangeName(exchangeName)
                 .setQueueName(queueName)
                 .setPlayerId(playerId)
-                .setCreated(created)
                 .setRoutingKey(routingKey)
-                .setErrorMessage(errorMessage)
                 .build();
     }
 

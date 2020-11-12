@@ -17,7 +17,6 @@ private static final long serialVersionUID = 0L;
   }
   private ExchangeCreationResponse() {
     exchangeName_ = "";
-    errorMessage_ = "";
   }
 
   @java.lang.Override
@@ -54,17 +53,6 @@ private static final long serialVersionUID = 0L;
             java.lang.String s = input.readStringRequireUtf8();
 
             exchangeName_ = s;
-            break;
-          }
-          case 16: {
-
-            created_ = input.readBool();
-            break;
-          }
-          case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            errorMessage_ = s;
             break;
           }
           default: {
@@ -137,55 +125,6 @@ private static final long serialVersionUID = 0L;
     }
   }
 
-  public static final int CREATED_FIELD_NUMBER = 2;
-  private boolean created_;
-  /**
-   * <code>bool created = 2;</code>
-   * @return The created.
-   */
-  @java.lang.Override
-  public boolean getCreated() {
-    return created_;
-  }
-
-  public static final int ERRORMESSAGE_FIELD_NUMBER = 3;
-  private volatile java.lang.Object errorMessage_;
-  /**
-   * <code>string errorMessage = 3;</code>
-   * @return The errorMessage.
-   */
-  @java.lang.Override
-  public java.lang.String getErrorMessage() {
-    java.lang.Object ref = errorMessage_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
-    } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
-      errorMessage_ = s;
-      return s;
-    }
-  }
-  /**
-   * <code>string errorMessage = 3;</code>
-   * @return The bytes for errorMessage.
-   */
-  @java.lang.Override
-  public com.google.protobuf.ByteString
-      getErrorMessageBytes() {
-    java.lang.Object ref = errorMessage_;
-    if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
-      errorMessage_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
-    }
-  }
-
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -203,12 +142,6 @@ private static final long serialVersionUID = 0L;
     if (!getExchangeNameBytes().isEmpty()) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 1, exchangeName_);
     }
-    if (created_ != false) {
-      output.writeBool(2, created_);
-    }
-    if (!getErrorMessageBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 3, errorMessage_);
-    }
     unknownFields.writeTo(output);
   }
 
@@ -220,13 +153,6 @@ private static final long serialVersionUID = 0L;
     size = 0;
     if (!getExchangeNameBytes().isEmpty()) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, exchangeName_);
-    }
-    if (created_ != false) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeBoolSize(2, created_);
-    }
-    if (!getErrorMessageBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, errorMessage_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -245,10 +171,6 @@ private static final long serialVersionUID = 0L;
 
     if (!getExchangeName()
         .equals(other.getExchangeName())) return false;
-    if (getCreated()
-        != other.getCreated()) return false;
-    if (!getErrorMessage()
-        .equals(other.getErrorMessage())) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -262,11 +184,6 @@ private static final long serialVersionUID = 0L;
     hash = (19 * hash) + getDescriptor().hashCode();
     hash = (37 * hash) + EXCHANGENAME_FIELD_NUMBER;
     hash = (53 * hash) + getExchangeName().hashCode();
-    hash = (37 * hash) + CREATED_FIELD_NUMBER;
-    hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
-        getCreated());
-    hash = (37 * hash) + ERRORMESSAGE_FIELD_NUMBER;
-    hash = (53 * hash) + getErrorMessage().hashCode();
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -402,10 +319,6 @@ private static final long serialVersionUID = 0L;
       super.clear();
       exchangeName_ = "";
 
-      created_ = false;
-
-      errorMessage_ = "";
-
       return this;
     }
 
@@ -433,8 +346,6 @@ private static final long serialVersionUID = 0L;
     public com.messageq.api.creation.ExchangeCreationResponse buildPartial() {
       com.messageq.api.creation.ExchangeCreationResponse result = new com.messageq.api.creation.ExchangeCreationResponse(this);
       result.exchangeName_ = exchangeName_;
-      result.created_ = created_;
-      result.errorMessage_ = errorMessage_;
       onBuilt();
       return result;
     }
@@ -485,13 +396,6 @@ private static final long serialVersionUID = 0L;
       if (other == com.messageq.api.creation.ExchangeCreationResponse.getDefaultInstance()) return this;
       if (!other.getExchangeName().isEmpty()) {
         exchangeName_ = other.exchangeName_;
-        onChanged();
-      }
-      if (other.getCreated() != false) {
-        setCreated(other.getCreated());
-      }
-      if (!other.getErrorMessage().isEmpty()) {
-        errorMessage_ = other.errorMessage_;
         onChanged();
       }
       this.mergeUnknownFields(other.unknownFields);
@@ -595,113 +499,6 @@ private static final long serialVersionUID = 0L;
   checkByteStringIsUtf8(value);
       
       exchangeName_ = value;
-      onChanged();
-      return this;
-    }
-
-    private boolean created_ ;
-    /**
-     * <code>bool created = 2;</code>
-     * @return The created.
-     */
-    @java.lang.Override
-    public boolean getCreated() {
-      return created_;
-    }
-    /**
-     * <code>bool created = 2;</code>
-     * @param value The created to set.
-     * @return This builder for chaining.
-     */
-    public Builder setCreated(boolean value) {
-      
-      created_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>bool created = 2;</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearCreated() {
-      
-      created_ = false;
-      onChanged();
-      return this;
-    }
-
-    private java.lang.Object errorMessage_ = "";
-    /**
-     * <code>string errorMessage = 3;</code>
-     * @return The errorMessage.
-     */
-    public java.lang.String getErrorMessage() {
-      java.lang.Object ref = errorMessage_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        errorMessage_ = s;
-        return s;
-      } else {
-        return (java.lang.String) ref;
-      }
-    }
-    /**
-     * <code>string errorMessage = 3;</code>
-     * @return The bytes for errorMessage.
-     */
-    public com.google.protobuf.ByteString
-        getErrorMessageBytes() {
-      java.lang.Object ref = errorMessage_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        errorMessage_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-    /**
-     * <code>string errorMessage = 3;</code>
-     * @param value The errorMessage to set.
-     * @return This builder for chaining.
-     */
-    public Builder setErrorMessage(
-        java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
-      errorMessage_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>string errorMessage = 3;</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearErrorMessage() {
-      
-      errorMessage_ = getDefaultInstance().getErrorMessage();
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>string errorMessage = 3;</code>
-     * @param value The bytes for errorMessage to set.
-     * @return This builder for chaining.
-     */
-    public Builder setErrorMessageBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
-      errorMessage_ = value;
       onChanged();
       return this;
     }

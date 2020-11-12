@@ -8,8 +8,6 @@ message ExchangeCreationRequest {
 
 message ExchangeCreationResponse {
   string exchangeName = 1;
-  bool created = 2;
-  string errorMessage = 3;
 }
 
 message CreatePlayerQueueRequest {
@@ -23,9 +21,7 @@ message CreatePlayerQueueResponse {
   string exchangeName = 1;
   string queueName = 2;
   int32 playerId = 3;
-  bool created = 4;
-  string errorMessage = 5;
-  string routingKey = 6;
+  string routingKey = 4;
 }
 
 service ManageQueueGrpcService {

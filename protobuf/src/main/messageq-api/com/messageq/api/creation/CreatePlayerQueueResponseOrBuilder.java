@@ -38,30 +38,12 @@ public interface CreatePlayerQueueResponseOrBuilder extends
   int getPlayerId();
 
   /**
-   * <code>bool created = 4;</code>
-   * @return The created.
-   */
-  boolean getCreated();
-
-  /**
-   * <code>string errorMessage = 5;</code>
-   * @return The errorMessage.
-   */
-  java.lang.String getErrorMessage();
-  /**
-   * <code>string errorMessage = 5;</code>
-   * @return The bytes for errorMessage.
-   */
-  com.google.protobuf.ByteString
-      getErrorMessageBytes();
-
-  /**
-   * <code>string routingKey = 6;</code>
+   * <code>string routingKey = 4;</code>
    * @return The routingKey.
    */
   java.lang.String getRoutingKey();
   /**
-   * <code>string routingKey = 6;</code>
+   * <code>string routingKey = 4;</code>
    * @return The bytes for routingKey.
    */
   com.google.protobuf.ByteString

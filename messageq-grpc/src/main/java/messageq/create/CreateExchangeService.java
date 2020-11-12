@@ -19,18 +19,14 @@ public class CreateExchangeService extends ManageQueueGrpcServiceGrpc.ManageQueu
     public void createExchange(ExchangeCreationRequest request,
                                StreamObserver<ExchangeCreationResponse> responseObserver) {
         String exchangeName = request.getExchangeName();
-        boolean created = true;
-        String errorMessage = "";
 
         try {
             declareExchange(exchangeName);
+            responseObserver.onNext(MessageQueueResponseFactory.toExchangeCreationResponse(exchangeName));
         } catch (AmqpException e) {
-            created = false;
-            errorMessage = e.getMessage();
+            responseObserver.onError(e);
         }
 
-        responseObserver.onNext(MessageQueueResponseFactory
-                .toExchangeCreationResponse(exchangeName, created, errorMessage));
         responseObserver.onCompleted();
     }
 
@@ -45,9 +41,6 @@ public class CreateExchangeService extends ManageQueueGrpcServiceGrpc.ManageQueu
     @Override
     public void connectPlayerToQueue(CreatePlayerQueueRequest request,
                                      StreamObserver<CreatePlayerQueueResponse> responseObserver) {
-        boolean created = true;
-        String errorMessage = "";
-
         String exchangeName = request.getExchangeName();
         String queueName = request.getQueueName();
 
@@ -55,13 +48,11 @@ public class CreateExchangeService extends ManageQueueGrpcServiceGrpc.ManageQueu
             declareExchange(exchangeName);
             declareQueueAndBindToExchange(request.getRoutingKey(), queueName, exchangeName);
         } catch (AmqpException e) {
-            created = false;
-            errorMessage = e.getMessage();
+            responseObserver.onError(e);
         }
 
         CreatePlayerQueueResponse playerQueueResponse = MessageQueueResponseFactory
-                .toCreatePlayerQueueResponse(exchangeName, request.getRoutingKey(),
-                        queueName, request.getPlayerId(), created, errorMessage);
+                .toCreatePlayerQueueResponse(exchangeName, request.getRoutingKey(), queueName, request.getPlayerId());
 
         responseObserver.onNext(playerQueueResponse);
         responseObserver.onCompleted();
@@ -73,8 +64,7 @@ public class CreateExchangeService extends ManageQueueGrpcServiceGrpc.ManageQueu
                 .build();
         rabbitAdmin.declareQueue(nonDurableQueue);
 
-        Binding binding = new Binding(queueName, DestinationType.QUEUE,
-                exchangeName, routingKey, null);
+        Binding binding = new Binding(queueName, DestinationType.QUEUE, exchangeName, routingKey, null);
         rabbitAdmin.declareBinding(binding);
     }
 }

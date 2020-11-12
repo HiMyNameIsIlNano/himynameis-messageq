@@ -49,16 +49,15 @@ public final class ActionQueue {
       "\001(\t\022\022\n\nroutingKey\030\002 \001(\t\022\036\n\007message\030\003 \001(\013" +
       "2\r.QueueMessage\"^\n\037PushMessageConfirmati" +
       "onResponse\022\014\n\004type\030\001 \001(\t\022-\n\ttimestamp\030\002 " +
-      "\001(\0132\032.google.protobuf.Timestamp\"F\n\021PopMe" +
-      "ssageRequest\022\021\n\tqueueName\030\001 \001(\t\022\036\n\007messa" +
-      "ge\030\002 \001(\0132\r.QueueMessage\"C\n\014QueueMessage\022" +
-      "\014\n\004type\030\001 \001(\t\022%\n\007message\030\002 \001(\0132\024.google." +
-      "protobuf.Any2\224\001\n\027QueueActionsGrpcService" +
-      "\022F\n\013PushMessage\022\023.PushMessageRequest\032 .P" +
-      "ushMessageConfirmationResponse\"\000\0221\n\nPopM" +
-      "essage\022\022.PopMessageRequest\032\r.QueueMessag" +
-      "e\"\000B\034\n\030com.messageq.api.actionsP\001b\006proto" +
-      "3"
+      "\001(\0132\032.google.protobuf.Timestamp\"&\n\021PopMe" +
+      "ssageRequest\022\021\n\tqueueName\030\001 \001(\t\"C\n\014Queue" +
+      "Message\022\014\n\004type\030\001 \001(\t\022%\n\007message\030\002 \001(\0132\024" +
+      ".google.protobuf.Any2\224\001\n\027QueueActionsGrp" +
+      "cService\022F\n\013PushMessage\022\023.PushMessageReq" +
+      "uest\032 .PushMessageConfirmationResponse\"\000" +
+      "\0221\n\nPopMessage\022\022.PopMessageRequest\032\r.Que" +
+      "ueMessage\"\000B\034\n\030com.messageq.api.actionsP" +
+      "\001b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -83,7 +82,7 @@ public final class ActionQueue {
     internal_static_PopMessageRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_PopMessageRequest_descriptor,
-        new java.lang.String[] { "QueueName", "Message", });
+        new java.lang.String[] { "QueueName", });
     internal_static_QueueMessage_descriptor =
       getDescriptor().getMessageTypes().get(3);
     internal_static_QueueMessage_fieldAccessorTable = new

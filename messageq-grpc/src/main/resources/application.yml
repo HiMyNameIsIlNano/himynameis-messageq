@@ -11,7 +11,3 @@ spring:
 grpc:
   server:
     port: 6566
-
-socket:
-  push:
-    exchange-name: push-notification

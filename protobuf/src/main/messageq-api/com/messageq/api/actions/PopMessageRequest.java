@@ -55,19 +55,6 @@ private static final long serialVersionUID = 0L;
             queueName_ = s;
             break;
           }
-          case 18: {
-            com.messageq.api.actions.QueueMessage.Builder subBuilder = null;
-            if (message_ != null) {
-              subBuilder = message_.toBuilder();
-            }
-            message_ = input.readMessage(com.messageq.api.actions.QueueMessage.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(message_);
-              message_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
           default: {
             if (!parseUnknownField(
                 input, unknownFields, extensionRegistry, tag)) {
@@ -138,32 +125,6 @@ private static final long serialVersionUID = 0L;
     }
   }
 
-  public static final int MESSAGE_FIELD_NUMBER = 2;
-  private com.messageq.api.actions.QueueMessage message_;
-  /**
-   * <code>.QueueMessage message = 2;</code>
-   * @return Whether the message field is set.
-   */
-  @java.lang.Override
-  public boolean hasMessage() {
-    return message_ != null;
-  }
-  /**
-   * <code>.QueueMessage message = 2;</code>
-   * @return The message.
-   */
-  @java.lang.Override
-  public com.messageq.api.actions.QueueMessage getMessage() {
-    return message_ == null ? com.messageq.api.actions.QueueMessage.getDefaultInstance() : message_;
-  }
-  /**
-   * <code>.QueueMessage message = 2;</code>
-   */
-  @java.lang.Override
-  public com.messageq.api.actions.QueueMessageOrBuilder getMessageOrBuilder() {
-    return getMessage();
-  }
-
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -181,9 +142,6 @@ private static final long serialVersionUID = 0L;
     if (!getQueueNameBytes().isEmpty()) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 1, queueName_);
     }
-    if (message_ != null) {
-      output.writeMessage(2, getMessage());
-    }
     unknownFields.writeTo(output);
   }
 
@@ -195,10 +153,6 @@ private static final long serialVersionUID = 0L;
     size = 0;
     if (!getQueueNameBytes().isEmpty()) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, queueName_);
-    }
-    if (message_ != null) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(2, getMessage());
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -217,11 +171,6 @@ private static final long serialVersionUID = 0L;
 
     if (!getQueueName()
         .equals(other.getQueueName())) return false;
-    if (hasMessage() != other.hasMessage()) return false;
-    if (hasMessage()) {
-      if (!getMessage()
-          .equals(other.getMessage())) return false;
-    }
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -235,10 +184,6 @@ private static final long serialVersionUID = 0L;
     hash = (19 * hash) + getDescriptor().hashCode();
     hash = (37 * hash) + QUEUENAME_FIELD_NUMBER;
     hash = (53 * hash) + getQueueName().hashCode();
-    if (hasMessage()) {
-      hash = (37 * hash) + MESSAGE_FIELD_NUMBER;
-      hash = (53 * hash) + getMessage().hashCode();
-    }
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -374,12 +319,6 @@ private static final long serialVersionUID = 0L;
       super.clear();
       queueName_ = "";
 
-      if (messageBuilder_ == null) {
-        message_ = null;
-      } else {
-        message_ = null;
-        messageBuilder_ = null;
-      }
       return this;
     }
 
@@ -407,11 +346,6 @@ private static final long serialVersionUID = 0L;
     public com.messageq.api.actions.PopMessageRequest buildPartial() {
       com.messageq.api.actions.PopMessageRequest result = new com.messageq.api.actions.PopMessageRequest(this);
       result.queueName_ = queueName_;
-      if (messageBuilder_ == null) {
-        result.message_ = message_;
-      } else {
-        result.message_ = messageBuilder_.build();
-      }
       onBuilt();
       return result;
     }
@@ -463,9 +397,6 @@ private static final long serialVersionUID = 0L;
       if (!other.getQueueName().isEmpty()) {
         queueName_ = other.queueName_;
         onChanged();
-      }
-      if (other.hasMessage()) {
-        mergeMessage(other.getMessage());
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -570,125 +501,6 @@ private static final long serialVersionUID = 0L;
       queueName_ = value;
       onChanged();
       return this;
-    }
-
-    private com.messageq.api.actions.QueueMessage message_;
-    private com.google.protobuf.SingleFieldBuilderV3<
-        com.messageq.api.actions.QueueMessage, com.messageq.api.actions.QueueMessage.Builder, com.messageq.api.actions.QueueMessageOrBuilder> messageBuilder_;
-    /**
-     * <code>.QueueMessage message = 2;</code>
-     * @return Whether the message field is set.
-     */
-    public boolean hasMessage() {
-      return messageBuilder_ != null || message_ != null;
-    }
-    /**
-     * <code>.QueueMessage message = 2;</code>
-     * @return The message.
-     */
-    public com.messageq.api.actions.QueueMessage getMessage() {
-      if (messageBuilder_ == null) {
-        return message_ == null ? com.messageq.api.actions.QueueMessage.getDefaultInstance() : message_;
-      } else {
-        return messageBuilder_.getMessage();
-      }
-    }
-    /**
-     * <code>.QueueMessage message = 2;</code>
-     */
-    public Builder setMessage(com.messageq.api.actions.QueueMessage value) {
-      if (messageBuilder_ == null) {
-        if (value == null) {
-          throw new NullPointerException();
-        }
-        message_ = value;
-        onChanged();
-      } else {
-        messageBuilder_.setMessage(value);
-      }
-
-      return this;
-    }
-    /**
-     * <code>.QueueMessage message = 2;</code>
-     */
-    public Builder setMessage(
-        com.messageq.api.actions.QueueMessage.Builder builderForValue) {
-      if (messageBuilder_ == null) {
-        message_ = builderForValue.build();
-        onChanged();
-      } else {
-        messageBuilder_.setMessage(builderForValue.build());
-      }
-
-      return this;
-    }
-    /**
-     * <code>.QueueMessage message = 2;</code>
-     */
-    public Builder mergeMessage(com.messageq.api.actions.QueueMessage value) {
-      if (messageBuilder_ == null) {
-        if (message_ != null) {
-          message_ =
-            com.messageq.api.actions.QueueMessage.newBuilder(message_).mergeFrom(value).buildPartial();
-        } else {
-          message_ = value;
-        }
-        onChanged();
-      } else {
-        messageBuilder_.mergeFrom(value);
-      }
-
-      return this;
-    }
-    /**
-     * <code>.QueueMessage message = 2;</code>
-     */
-    public Builder clearMessage() {
-      if (messageBuilder_ == null) {
-        message_ = null;
-        onChanged();
-      } else {
-        message_ = null;
-        messageBuilder_ = null;
-      }
-
-      return this;
-    }
-    /**
-     * <code>.QueueMessage message = 2;</code>
-     */
-    public com.messageq.api.actions.QueueMessage.Builder getMessageBuilder() {
-      
-      onChanged();
-      return getMessageFieldBuilder().getBuilder();
-    }
-    /**
-     * <code>.QueueMessage message = 2;</code>
-     */
-    public com.messageq.api.actions.QueueMessageOrBuilder getMessageOrBuilder() {
-      if (messageBuilder_ != null) {
-        return messageBuilder_.getMessageOrBuilder();
-      } else {
-        return message_ == null ?
-            com.messageq.api.actions.QueueMessage.getDefaultInstance() : message_;
-      }
-    }
-    /**
-     * <code>.QueueMessage message = 2;</code>
-     */
-    private com.google.protobuf.SingleFieldBuilderV3<
-        com.messageq.api.actions.QueueMessage, com.messageq.api.actions.QueueMessage.Builder, com.messageq.api.actions.QueueMessageOrBuilder> 
-        getMessageFieldBuilder() {
-      if (messageBuilder_ == null) {
-        messageBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-            com.messageq.api.actions.QueueMessage, com.messageq.api.actions.QueueMessage.Builder, com.messageq.api.actions.QueueMessageOrBuilder>(
-                getMessage(),
-                getParentForChildren(),
-                isClean());
-        message_ = null;
-      }
-      return messageBuilder_;
     }
     @java.lang.Override
     public final Builder setUnknownFields(

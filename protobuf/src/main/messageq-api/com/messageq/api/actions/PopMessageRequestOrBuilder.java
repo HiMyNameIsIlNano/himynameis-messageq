@@ -18,19 +18,4 @@ public interface PopMessageRequestOrBuilder extends
    */
   com.google.protobuf.ByteString
       getQueueNameBytes();
-
-  /**
-   * <code>.QueueMessage message = 2;</code>
-   * @return Whether the message field is set.
-   */
-  boolean hasMessage();
-  /**
-   * <code>.QueueMessage message = 2;</code>
-   * @return The message.
-   */
-  com.messageq.api.actions.QueueMessage getMessage();
-  /**
-   * <code>.QueueMessage message = 2;</code>
-   */
-  com.messageq.api.actions.QueueMessageOrBuilder getMessageOrBuilder();
 }

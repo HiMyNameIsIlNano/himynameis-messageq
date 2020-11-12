@@ -18,7 +18,6 @@ message PushMessageConfirmationResponse {
 
 message PopMessageRequest {
   string queueName = 1;
-  QueueMessage message = 2;
 }
 
 message QueueMessage {

@@ -18,22 +18,4 @@ public interface ExchangeCreationResponseOrBuilder extends
    */
   com.google.protobuf.ByteString
       getExchangeNameBytes();
-
-  /**
-   * <code>bool created = 2;</code>
-   * @return The created.
-   */
-  boolean getCreated();
-
-  /**
-   * <code>string errorMessage = 3;</code>
-   * @return The errorMessage.
-   */
-  java.lang.String getErrorMessage();
-  /**
-   * <code>string errorMessage = 3;</code>
-   * @return The bytes for errorMessage.
-   */
-  com.google.protobuf.ByteString
-      getErrorMessageBytes();
 }
