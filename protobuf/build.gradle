@@ -23,7 +23,7 @@ apply plugin: "com.jfrog.artifactory"
 apply from: 'grpc.gradle'
 
 group 'com.example'
-version '0.0.2-SNAPSHOT'
+version '0.0.3-SNAPSHOT'
 
 repositories {
     add buildscript.repositories.getByName("maven-main-cache")
@@ -31,14 +31,6 @@ repositories {
 
 dependencies {
     compile group: 'com.google.protobuf', name: 'protobuf-java', version: protobucCompilerVersion
-}
-
-sourceSets {
-    main {
-        java {
-            srcDirs += ["src/main/$protoOutDirName"]
-        }
-    }
 }
 
 artifactory {

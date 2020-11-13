@@ -1,0 +1,33 @@
+syntax = "proto3";
+option java_package = "com.messageq.api.actions";
+option java_multiple_files = true;
+
+import "google/protobuf/any.proto";
+import "google/protobuf/timestamp.proto";
+
+message PushMessageRequest {
+  string exchangeName = 1;
+  string routingKey = 2;
+  QueueMessage message = 3;
+}
+
+message PushMessageConfirmationResponse {
+  string type = 1;
+  google.protobuf.Timestamp timestamp = 2;
+}
+
+message PopMessageRequest {
+  string queueName = 1;
+}
+
+message QueueMessage {
+  string type = 1;
+  google.protobuf.Any message = 2;
+}
+
+service QueueActionsGrpcService {
+
+  rpc PushMessage(PushMessageRequest) returns (PushMessageConfirmationResponse) {}
+  rpc PopMessage(PopMessageRequest) returns (QueueMessage) {}
+
+}
