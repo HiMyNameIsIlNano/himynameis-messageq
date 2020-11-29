@@ -22,7 +22,7 @@ message PopMessageRequest {
 
 message QueueMessage {
   string type = 1;
-  google.protobuf.Any message = 2;
+  google.protobuf.Any payload = 2;
 }
 
 service QueueActionsGrpcService {
