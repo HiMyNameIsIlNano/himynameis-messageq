@@ -29,7 +29,7 @@ public static partial class ActionQueueReflection {
           "dXNoTWVzc2FnZUNvbmZpcm1hdGlvblJlc3BvbnNlEgwKBHR5cGUYASABKAkS",
           "LQoJdGltZXN0YW1wGAIgASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFt",
           "cCImChFQb3BNZXNzYWdlUmVxdWVzdBIRCglxdWV1ZU5hbWUYASABKAkiQwoM",
-          "UXVldWVNZXNzYWdlEgwKBHR5cGUYASABKAkSJQoHbWVzc2FnZRgCIAEoCzIU",
+          "UXVldWVNZXNzYWdlEgwKBHR5cGUYASABKAkSJQoHcGF5bG9hZBgCIAEoCzIU",
           "Lmdvb2dsZS5wcm90b2J1Zi5BbnkylAEKF1F1ZXVlQWN0aW9uc0dycGNTZXJ2",
           "aWNlEkYKC1B1c2hNZXNzYWdlEhMuUHVzaE1lc3NhZ2VSZXF1ZXN0GiAuUHVz",
           "aE1lc3NhZ2VDb25maXJtYXRpb25SZXNwb25zZSIAEjEKClBvcE1lc3NhZ2US",
@@ -41,7 +41,7 @@ public static partial class ActionQueueReflection {
           new pbr::GeneratedClrTypeInfo(typeof(global::PushMessageRequest), global::PushMessageRequest.Parser, new[]{ "ExchangeName", "RoutingKey", "Message" }, null, null, null, null),
           new pbr::GeneratedClrTypeInfo(typeof(global::PushMessageConfirmationResponse), global::PushMessageConfirmationResponse.Parser, new[]{ "Type", "Timestamp" }, null, null, null, null),
           new pbr::GeneratedClrTypeInfo(typeof(global::PopMessageRequest), global::PopMessageRequest.Parser, new[]{ "QueueName" }, null, null, null, null),
-          new pbr::GeneratedClrTypeInfo(typeof(global::QueueMessage), global::QueueMessage.Parser, new[]{ "Type", "Message" }, null, null, null, null)
+          new pbr::GeneratedClrTypeInfo(typeof(global::QueueMessage), global::QueueMessage.Parser, new[]{ "Type", "Payload" }, null, null, null, null)
         }));
   }
   #endregion
@@ -720,7 +720,7 @@ public sealed partial class QueueMessage : pb::IMessage<QueueMessage>
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
   public QueueMessage(QueueMessage other) : this() {
     type_ = other.type_;
-    message_ = other.message_ != null ? other.message_.Clone() : null;
+    payload_ = other.payload_ != null ? other.payload_.Clone() : null;
     _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
   }
 
@@ -740,14 +740,14 @@ public sealed partial class QueueMessage : pb::IMessage<QueueMessage>
     }
   }
 
-  /// <summary>Field number for the "message" field.</summary>
-  public const int MessageFieldNumber = 2;
-  private global::Google.Protobuf.WellKnownTypes.Any message_;
+  /// <summary>Field number for the "payload" field.</summary>
+  public const int PayloadFieldNumber = 2;
+  private global::Google.Protobuf.WellKnownTypes.Any payload_;
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public global::Google.Protobuf.WellKnownTypes.Any Message {
-    get { return message_; }
+  public global::Google.Protobuf.WellKnownTypes.Any Payload {
+    get { return payload_; }
     set {
-      message_ = value;
+      payload_ = value;
     }
   }
 
@@ -765,7 +765,7 @@ public sealed partial class QueueMessage : pb::IMessage<QueueMessage>
       return true;
     }
     if (Type != other.Type) return false;
-    if (!object.Equals(Message, other.Message)) return false;
+    if (!object.Equals(Payload, other.Payload)) return false;
     return Equals(_unknownFields, other._unknownFields);
   }
 
@@ -773,7 +773,7 @@ public sealed partial class QueueMessage : pb::IMessage<QueueMessage>
   public override int GetHashCode() {
     int hash = 1;
     if (Type.Length != 0) hash ^= Type.GetHashCode();
-    if (message_ != null) hash ^= Message.GetHashCode();
+    if (payload_ != null) hash ^= Payload.GetHashCode();
     if (_unknownFields != null) {
       hash ^= _unknownFields.GetHashCode();
     }
@@ -794,9 +794,9 @@ public sealed partial class QueueMessage : pb::IMessage<QueueMessage>
       output.WriteRawTag(10);
       output.WriteString(Type);
     }
-    if (message_ != null) {
+    if (payload_ != null) {
       output.WriteRawTag(18);
-      output.WriteMessage(Message);
+      output.WriteMessage(Payload);
     }
     if (_unknownFields != null) {
       _unknownFields.WriteTo(output);
@@ -811,9 +811,9 @@ public sealed partial class QueueMessage : pb::IMessage<QueueMessage>
       output.WriteRawTag(10);
       output.WriteString(Type);
     }
-    if (message_ != null) {
+    if (payload_ != null) {
       output.WriteRawTag(18);
-      output.WriteMessage(Message);
+      output.WriteMessage(Payload);
     }
     if (_unknownFields != null) {
       _unknownFields.WriteTo(ref output);
@@ -827,8 +827,8 @@ public sealed partial class QueueMessage : pb::IMessage<QueueMessage>
     if (Type.Length != 0) {
       size += 1 + pb::CodedOutputStream.ComputeStringSize(Type);
     }
-    if (message_ != null) {
-      size += 1 + pb::CodedOutputStream.ComputeMessageSize(Message);
+    if (payload_ != null) {
+      size += 1 + pb::CodedOutputStream.ComputeMessageSize(Payload);
     }
     if (_unknownFields != null) {
       size += _unknownFields.CalculateSize();
@@ -844,11 +844,11 @@ public sealed partial class QueueMessage : pb::IMessage<QueueMessage>
     if (other.Type.Length != 0) {
       Type = other.Type;
     }
-    if (other.message_ != null) {
-      if (message_ == null) {
-        Message = new global::Google.Protobuf.WellKnownTypes.Any();
+    if (other.payload_ != null) {
+      if (payload_ == null) {
+        Payload = new global::Google.Protobuf.WellKnownTypes.Any();
       }
-      Message.MergeFrom(other.Message);
+      Payload.MergeFrom(other.Payload);
     }
     _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
   }
@@ -869,10 +869,10 @@ public sealed partial class QueueMessage : pb::IMessage<QueueMessage>
           break;
         }
         case 18: {
-          if (message_ == null) {
-            Message = new global::Google.Protobuf.WellKnownTypes.Any();
+          if (payload_ == null) {
+            Payload = new global::Google.Protobuf.WellKnownTypes.Any();
           }
-          input.ReadMessage(Message);
+          input.ReadMessage(Payload);
           break;
         }
       }
@@ -894,10 +894,10 @@ public sealed partial class QueueMessage : pb::IMessage<QueueMessage>
           break;
         }
         case 18: {
-          if (message_ == null) {
-            Message = new global::Google.Protobuf.WellKnownTypes.Any();
+          if (payload_ == null) {
+            Payload = new global::Google.Protobuf.WellKnownTypes.Any();
           }
-          input.ReadMessage(Message);
+          input.ReadMessage(Payload);
           break;
         }
       }
