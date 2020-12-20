@@ -8,8 +8,7 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 @SpringBootApplication
 public class MessageqApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(MessageqApplication.class, args);
-	}
-
+    public static void main(String[] args) {
+        SpringApplication.run(MessageqApplication.class, args);
+    }
 }

@@ -20,17 +20,17 @@ public interface QueueMessageOrBuilder extends
       getTypeBytes();
 
   /**
-   * <code>.google.protobuf.Any message = 2;</code>
-   * @return Whether the message field is set.
+   * <code>.google.protobuf.Any payload = 2;</code>
+   * @return Whether the payload field is set.
    */
-  boolean hasMessage();
+  boolean hasPayload();
   /**
-   * <code>.google.protobuf.Any message = 2;</code>
-   * @return The message.
+   * <code>.google.protobuf.Any payload = 2;</code>
+   * @return The payload.
    */
-  com.google.protobuf.Any getMessage();
+  com.google.protobuf.Any getPayload();
   /**
-   * <code>.google.protobuf.Any message = 2;</code>
+   * <code>.google.protobuf.Any payload = 2;</code>
    */
-  com.google.protobuf.AnyOrBuilder getMessageOrBuilder();
+  com.google.protobuf.AnyOrBuilder getPayloadOrBuilder();
 }

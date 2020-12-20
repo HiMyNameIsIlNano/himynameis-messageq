@@ -8,11 +8,7 @@ import lombok.experimental.UtilityClass;
 public class MessageQueueResponseFactory {
 
     public ExchangeCreationResponse toExchangeCreationResponse(String exchangeName) {
-
-        return ExchangeCreationResponse
-                .newBuilder()
-                .setExchangeName(exchangeName)
-                .build();
+        return ExchangeCreationResponse.newBuilder().setExchangeName(exchangeName).build();
     }
 
     public CreatePlayerQueueResponse toCreatePlayerQueueResponse(
@@ -25,5 +21,4 @@ public class MessageQueueResponseFactory {
                 .setRoutingKey(routingKey)
                 .build();
     }
-
 }

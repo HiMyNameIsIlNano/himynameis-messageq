@@ -1,6 +1,7 @@
 plugins {
     id 'org.springframework.boot' version "$springBootGradlePluginVersion"
     id 'io.spring.dependency-management' version "$springBootDependencyManagementPluginVersion"
+    id 'com.github.sherter.google-java-format' version "$googleJavaFormatPluginVersion"
 }
 
 group = 'com.example'
@@ -22,7 +23,7 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-security'
     implementation 'org.springframework.boot:spring-boot-starter-web'
 
-    implementation(group: 'com.example', name: 'messageq-grpc-api-schema', version: '0.0.3-SNAPSHOT')
+    implementation(group: 'com.example', name: 'messageq-grpc-api-schema', version: '0.0.4-SNAPSHOT')
 
     compileOnly 'org.projectlombok:lombok'
     annotationProcessor 'org.projectlombok:lombok'
@@ -46,3 +47,8 @@ dependencyManagement {
 test {
     useJUnitPlatform()
 }
+
+googleJavaFormat {
+    options style: 'AOSP'
+}
+verifyGoogleJavaFormat.dependsOn(tasks.googleJavaFormat)
