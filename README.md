@@ -27,9 +27,16 @@ Once the correct parameters are set, the publication can be performed with the f
 
 ```./gradlew clean artifactoryPublish```
 
+# Publish the Java APIs to a local maven
+
+In order to publish a new version of the APIs `jar` to the local maven repository: 
+
+```./gradlew clean jar publishToMavenLocal```
+
 # Publish the .Net APIs to Artifactory 
 
 This is still a work in progress. The `oss` version of JFROG-Artifactory does not seem to be able to support `nuget` packages out of the box. In order to check and see how to generate and publish a nuget package locally please [check here](./messageq-grpc-csharp/MessageqGrpcCsharpLib/MessageqGrpcCsharp/README.md).
 
 # TODOs:
 - [ ] Publish the above mentioned `dll` library file onto a local artifactory  
+- [ ] Find a way to keep the `dll` and `jar` library version on the same number  

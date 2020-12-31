@@ -51,7 +51,7 @@ public final class ActionQueue {
       "onResponse\022\014\n\004type\030\001 \001(\t\022-\n\ttimestamp\030\002 " +
       "\001(\0132\032.google.protobuf.Timestamp\"&\n\021PopMe" +
       "ssageRequest\022\021\n\tqueueName\030\001 \001(\t\"C\n\014Queue" +
-      "Message\022\014\n\004type\030\001 \001(\t\022%\n\007message\030\002 \001(\0132\024" +
+      "Message\022\014\n\004type\030\001 \001(\t\022%\n\007payload\030\002 \001(\0132\024" +
       ".google.protobuf.Any2\224\001\n\027QueueActionsGrp" +
       "cService\022F\n\013PushMessage\022\023.PushMessageReq" +
       "uest\032 .PushMessageConfirmationResponse\"\000" +
@@ -88,7 +88,7 @@ public final class ActionQueue {
     internal_static_QueueMessage_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_QueueMessage_descriptor,
-        new java.lang.String[] { "Type", "Message", });
+        new java.lang.String[] { "Type", "Payload", });
     com.google.protobuf.AnyProto.getDescriptor();
     com.google.protobuf.TimestampProto.getDescriptor();
   }

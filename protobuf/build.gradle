@@ -23,7 +23,7 @@ apply plugin: "com.jfrog.artifactory"
 apply from: 'grpc.gradle'
 
 group 'com.example'
-version '0.0.3-SNAPSHOT'
+version "${apiVersion}"
 
 repositories {
     add buildscript.repositories.getByName("maven-main-cache")

@@ -11,36 +11,38 @@ import org.springframework.amqp.rabbit.core.RabbitAdmin;
 
 @RequiredArgsConstructor
 @GrpcService
-public class CreateExchangeService extends ManageQueueGrpcServiceGrpc.ManageQueueGrpcServiceImplBase {
+public class CreateExchangeService
+        extends ManageQueueGrpcServiceGrpc.ManageQueueGrpcServiceImplBase {
 
     private final RabbitAdmin rabbitAdmin;
 
     @Override
-    public void createExchange(ExchangeCreationRequest request,
-                               StreamObserver<ExchangeCreationResponse> responseObserver) {
+    public void createExchange(
+            ExchangeCreationRequest request,
+            StreamObserver<ExchangeCreationResponse> responseObserver) {
         String exchangeName = request.getExchangeName();
 
         try {
             declareExchange(exchangeName);
-            responseObserver.onNext(MessageQueueResponseFactory.toExchangeCreationResponse(exchangeName));
         } catch (AmqpException e) {
             responseObserver.onError(e);
         }
 
+        responseObserver.onNext(
+                MessageQueueResponseFactory.toExchangeCreationResponse(exchangeName));
         responseObserver.onCompleted();
     }
 
     private void declareExchange(String exchangeName) {
-        Exchange exchange = ExchangeBuilder
-                .directExchange(exchangeName)
-                .build();
+        Exchange exchange = ExchangeBuilder.directExchange(exchangeName).build();
 
         rabbitAdmin.declareExchange(exchange);
     }
 
     @Override
-    public void connectPlayerToQueue(CreatePlayerQueueRequest request,
-                                     StreamObserver<CreatePlayerQueueResponse> responseObserver) {
+    public void connectPlayerToQueue(
+            CreatePlayerQueueRequest request,
+            StreamObserver<CreatePlayerQueueResponse> responseObserver) {
         String exchangeName = request.getExchangeName();
         String queueName = request.getQueueName();
 
@@ -51,20 +53,21 @@ public class CreateExchangeService extends ManageQueueGrpcServiceGrpc.ManageQueu
             responseObserver.onError(e);
         }
 
-        CreatePlayerQueueResponse playerQueueResponse = MessageQueueResponseFactory
-                .toCreatePlayerQueueResponse(exchangeName, request.getRoutingKey(), queueName, request.getPlayerId());
+        CreatePlayerQueueResponse playerQueueResponse =
+                MessageQueueResponseFactory.toCreatePlayerQueueResponse(
+                        exchangeName, request.getRoutingKey(), queueName, request.getPlayerId());
 
         responseObserver.onNext(playerQueueResponse);
         responseObserver.onCompleted();
     }
 
-    private void declareQueueAndBindToExchange(String routingKey, String queueName, String exchangeName) {
-        Queue nonDurableQueue = QueueBuilder
-                .nonDurable(queueName)
-                .build();
+    private void declareQueueAndBindToExchange(
+            String routingKey, String queueName, String exchangeName) {
+        Queue nonDurableQueue = QueueBuilder.nonDurable(queueName).build();
         rabbitAdmin.declareQueue(nonDurableQueue);
 
-        Binding binding = new Binding(queueName, DestinationType.QUEUE, exchangeName, routingKey, null);
+        Binding binding =
+                new Binding(queueName, DestinationType.QUEUE, exchangeName, routingKey, null);
         rabbitAdmin.declareBinding(binding);
     }
 }
