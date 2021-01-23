@@ -1,3 +1,8 @@
+plugins {
+    id 'com.github.sherter.google-java-format' version "$googleJavaFormatPluginVersion"
+    id 'name.remal.check-dependency-updates' version "$checkDependencyUpdateVersion"
+}
+
 allprojects {
     repositories {
         mavenLocal()
@@ -7,11 +12,19 @@ allprojects {
 
 subprojects {
     apply plugin: 'java'
+    apply plugin: 'name.remal.check-dependency-updates'
 
     dependencies {
         // grpc server
         compile group: 'net.devh', name: 'grpc-server-spring-boot-starter', version: grpcSpringBootVersion
     }
+
+    if (name.equals('messageq-grpc') || name.equals('messageq-grpc-api-schema')) {
+        apply plugin: 'com.github.sherter.google-java-format'
+
+        verifyGoogleJavaFormat.dependsOn(tasks.googleJavaFormat)
+    }
+
     buildscript.repositories {
         mavenLocal()
         jcenter()

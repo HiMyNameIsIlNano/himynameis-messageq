@@ -1,11 +1,10 @@
 plugins {
-    id 'org.springframework.boot' version "$springBootGradlePluginVersion"
+    id 'org.springframework.boot' version "$springBootVersion"
     id 'io.spring.dependency-management' version "$springBootDependencyManagementPluginVersion"
-    id 'com.github.sherter.google-java-format' version "$googleJavaFormatPluginVersion"
 }
 
 group = 'com.example'
-version = '0.0.3-SNAPSHOT'
+version = notUsed
 sourceCompatibility = '14'
 
 configurations {
@@ -15,7 +14,7 @@ configurations {
 }
 
 ext {
-    set('testcontainersVersion', "1.14.3")
+    set('testContainersVersion', testContainersVersion)
 }
 
 dependencies {
@@ -40,7 +39,7 @@ dependencies {
 
 dependencyManagement {
     imports {
-        mavenBom "org.testcontainers:testcontainers-bom:${testcontainersVersion}"
+        mavenBom "org.testcontainers:testcontainers-bom:${testContainersVersion}"
     }
 }
 
@@ -51,4 +50,3 @@ test {
 googleJavaFormat {
     options style: 'AOSP'
 }
-verifyGoogleJavaFormat.dependsOn(tasks.googleJavaFormat)
